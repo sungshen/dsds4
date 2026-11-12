@@ -13,8 +13,8 @@ from dotenv import load_dotenv
 # 설정
 # -----------------------------
 
-START_DATE = "2024-01-01"
-END_DATE = "2025-12-31"
+START_DATE = "2025-12-31"
+END_DATE = "2026-01-01"
 
 # 1시간 간격
 INTERVAL_HOURS = 1
