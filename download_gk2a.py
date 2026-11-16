@@ -1,3 +1,4 @@
+import argparse
 import os
 import csv
 import hashlib
@@ -13,14 +14,14 @@ from dotenv import load_dotenv
 # 설정
 # -----------------------------
 
-START_DATE = "2025-12-31"
-END_DATE = "2026-01-01"
+START_DATE = "2024-01-01"
+END_DATE = "2025-12-31"
 
-# 1시간 간격
-INTERVAL_HOURS = 1
+# 00:00 UTC (09:00 KST) 일자별 대표 관측
+INTERVAL_HOURS = 24
 
 # 천리안 2A 설정
-LVL = "l1b"
+LVL = "le1b"
 DATA = "ir112"
 AREA = "ko"
 
@@ -34,15 +35,20 @@ REQUEST_TIMEOUT = 120
 MAX_RETRIES = 2
 
 # 저장 폴더
-DOWNLOAD_DIR = Path("downloads/gk2a_ir112_ko")
-LOG_DIR = Path("logs")
+DOWNLOAD_DIR = Path("data/bronze/gk2a/IR112_KO")
+LOG_DIR = DOWNLOAD_DIR / "logs"
 MANIFEST_PATH = LOG_DIR / "asset_manifest.csv"
 DOWNLOAD_LOG_PATH = LOG_DIR / "download_log.csv"
 
 DOWNLOAD_DIR.mkdir(parents=True, exist_ok=True)
 LOG_DIR.mkdir(parents=True, exist_ok=True)
 
-BASE_URL = "https://apihub.kma.go.kr/api/typ01/url/sat_file_nc_down.php"
+BASE_URL = "https://apihub.kma.go.kr/api/typ05/api/GK2A"
+NETCDF_SIGNATURES = (b"CDF\x01", b"CDF\x02", b"CDF\x05", b"\x89HDF\r\n\x1a\n")
+
+
+def has_netcdf_signature(header: bytes) -> bool:
+    return header.startswith(NETCDF_SIGNATURES)
 
 # -----------------------------
 # 유틸리티
@@ -85,12 +91,12 @@ def append_csv(path: Path, row: dict, fieldnames: list):
 
 def build_timestamps():
     start = datetime.strptime(START_DATE, "%Y-%m-%d")
-    end = datetime.strptime(END_DATE, "%Y-%m-%d")
+    end = datetime.strptime(END_DATE, "%Y-%m-%d") + timedelta(days=1)
 
     timestamps = []
     current = start
 
-    while current <= end:
+    while current < end:
         timestamps.append(current)
         current += timedelta(hours=INTERVAL_HOURS)
 
@@ -107,8 +113,12 @@ def download_one(dt_utc: datetime, api_key: str):
     filename = f"gk2a_ami_{LVL}_{DATA}_{AREA}_{tm}.nc"
     output_path = DOWNLOAD_DIR / filename
 
-    # 이미 받은 파일은 재다운로드하지 않음
-    if output_path.exists() and output_path.stat().st_size > 0:
+    if output_path.is_file():
+        with output_path.open("rb") as stream:
+            existing_is_netcdf = has_netcdf_signature(stream.read(8))
+    else:
+        existing_is_netcdf = False
+    if existing_is_netcdf:
         return {
             "status": "already_exists",
             "http_status": "",
@@ -117,40 +127,40 @@ def download_one(dt_utc: datetime, api_key: str):
             "error_message": "",
         }
 
-    params = {
-        "lvl": LVL,
-        "data": DATA,
-        "area": AREA,
-        "tm": tm,
-        "authKey": api_key,
-    }
+    url = f"{BASE_URL}/LE1B/{DATA.upper()}/{AREA.upper()}/data"
+    params = {"date": tm, "authKey": api_key}
 
     last_error = ""
 
     for attempt in range(1, MAX_RETRIES + 1):
         try:
             response = requests.get(
-                BASE_URL,
+                url,
                 params=params,
                 timeout=REQUEST_TIMEOUT,
+                allow_redirects=False,
             )
 
-            content_type = response.headers.get("Content-Type", "")
-
+            if response.status_code in (401, 403):
+                raise SystemExit(
+                    f"HTTP {response.status_code}: API허브에서 천리안 2A호 "
+                    "기본관측자료 다운로드 활용신청 및 인증키 권한을 확인하세요."
+                )
             if response.status_code != 200:
-                last_error = f"HTTP {response.status_code}: {response.text[:200]}"
+                last_error = f"HTTP {response.status_code}"
+                if response.status_code not in (429, 500, 502, 503, 504):
+                    break
+                time.sleep(2 ** attempt)
                 continue
 
-            if "html" in content_type.lower() or "json" in content_type.lower():
-                last_error = f"API error: {response.text[:200]}"
-                continue
+            if not has_netcdf_signature(response.content[:8]):
+                last_error = "HTTP 200 response has no NetCDF signature"
+                break
 
-            if len(response.content) == 0:
-                last_error = "Empty response body"
-                continue
-
-            with output_path.open("wb") as f:
+            temporary_path = output_path.with_suffix(".nc.part")
+            with temporary_path.open("wb") as f:
                 f.write(response.content)
+            temporary_path.replace(output_path)
 
             file_hash = sha256_of_file(output_path)
 
@@ -163,7 +173,7 @@ def download_one(dt_utc: datetime, api_key: str):
             }
 
         except requests.exceptions.RequestException as e:
-            last_error = str(e)[:200]
+            last_error = type(e).__name__
 
         time.sleep(1)
 
@@ -181,6 +191,25 @@ def download_one(dt_utc: datetime, api_key: str):
 # -----------------------------
 
 def main():
+    parser = argparse.ArgumentParser(description="Collect GK2A IR112 KO Bronze NetCDF files.")
+    parser.add_argument(
+        "--replay-manifest", type=Path,
+        help="Download the exact UTC observations listed in a Bronze asset manifest.",
+    )
+    args = parser.parse_args()
+    expected_hashes = {}
+    if args.replay_manifest:
+        with args.replay_manifest.open(encoding="utf-8-sig", newline="") as stream:
+            expected_hashes = {
+                datetime.fromisoformat(row["observation_time_utc"]): row["sha256"]
+                for row in csv.DictReader(stream)
+            }
+        timestamps = sorted(expected_hashes)
+    else:
+        timestamps = build_timestamps()
+    if not timestamps:
+        parser.error("No observation timestamps")
+
     api_key = load_api_key()
 
     manifest_fields = [
@@ -210,8 +239,6 @@ def main():
     init_csv(MANIFEST_PATH, manifest_fields)
     init_csv(DOWNLOAD_LOG_PATH, log_fields)
 
-    timestamps = build_timestamps()
-
     print(f"총 요청 시각 수: {len(timestamps)}")
     print(f"동시 요청 수: {MAX_WORKERS}")
     print(f"저장 폴더: {DOWNLOAD_DIR}")
@@ -231,6 +258,9 @@ def main():
         for future in as_completed(futures):
             dt_utc = futures[future]
             result = future.result()
+            if dt_utc in expected_hashes and result["status"] != "failed":
+                if result["sha256"] != expected_hashes[dt_utc]:
+                    result.update(status="failed", error_message="SHA-256 differs from replay manifest")
 
             now = datetime.now().isoformat(timespec="seconds")
 
@@ -280,7 +310,8 @@ def main():
     print(f"성공: {success_count}")
     print(f"이미 존재: {already_count}")
     print(f"실패: {fail_count}")
+    return int(fail_count > 0)
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
