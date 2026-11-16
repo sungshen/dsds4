@@ -1,0 +1,45 @@
+{
+  "processing_code": "crop_gk2a_silver.py",
+  "processing_version": "gk2a-ir112-ko-silver-1.0",
+  "processing_code_sha256": "eceb6e2dfb253444c0de44a672e5fe0f5c86536c8bba64d723a82b26cfa8d5a5",
+  "bronze_manifest": "logs/gk2a_bronze_manifest.csv",
+  "bronze_manifest_sha256": "60a7d5ed21676a09665dea0a04ada193042557fe7505ca48d40bd0bc9485cf23",
+  "boundary": "config/hangjeongdong_서울특별시.geojson",
+  "boundary_version": "sha256:910270518645767503cd6f53feb29898c4404ebf33745b7e5dcedf1ce65fb70a",
+  "boundary_validity_period": null,
+  "admin_code_field": "adm_cd2",
+  "crs_wkt": "PROJCS[\"unknown\",GEOGCS[\"unknown\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"latitude_of_origin\",38],PARAMETER[\"central_meridian\",126],PARAMETER[\"standard_parallel_1\",30],PARAMETER[\"standard_parallel_2\",60],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]",
+  "native_transform": [
+    2000.0,
+    0.0,
+    -900000.0,
+    0.0,
+    -2000.0,
+    900000.0
+  ],
+  "pixel_size_m": 2000,
+  "position_reference_check": {
+    "url": "https://nmsc.kma.go.kr/upload/resource/data/gk2a/gk2a_ami_ko020lc_latlon.nc",
+    "sha256": "3632d83513eb0093686fd2bf2053eff260d5d76b90475daf77fbc81eacefe47c",
+    "checked_pixel_centers": 35,
+    "max_error_degrees": 7.93715449276533e-06
+  },
+  "source_band": "IR112",
+  "source_variable": "image_pixel_values",
+  "units": "packed digital number (DN)",
+  "calibration": "none",
+  "resampling": "none",
+  "image_nodata": 65535,
+  "geometry_mask": "all_touched; boundary pixels can be shared across dongs",
+  "quality_mask_codes": {
+    "0": "outside dong",
+    "1": "valid 13-bit DN",
+    "2": "source nodata",
+    "3": "upper bits set; raw code preserved; excluded from valid count"
+  },
+  "cloud_qc_status": "unverified",
+  "cloud_fraction": null,
+  "observation_count": 731,
+  "dong_count": 425,
+  "observation_dong_count": 310675
+}
