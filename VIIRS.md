@@ -1,5 +1,7 @@
 # 2024–2025 대한민국 VIIRS 파이프라인
 
+운영 파이프라인은 독일 업체 Hetzner의 Cloud VM에서 실행합니다. VM은 핀란드 헬싱키 리전(`HEL1`)에 있으며, Bronze 원본·Silver Parquet·결측 보고서는 Cloudflare R2에 저장합니다.
+
 **Bronze**는 한국시간 2024-01-01부터 2026-01-01 직전까지 대한민국 주변을 통과한 Suomi NPP VIIRS Collection 2 관측을 수집합니다. CMR에서 경도 124–132°, 위도 32–39°와 교차하는 장면을 검색하고 관측 시작 시각이 일치하는 VNP02IMG 영상과 VNP03IMG 지리좌표를 묶습니다. 원본 NetCDF는 `data/bronze/viirs/YYYY/MM/DD/`에 보존합니다. 하루 경계와 저장 경로는 KST 기준이며 파일명의 관측 시각은 UTC입니다.
 
 **Silver**는 해당 연도의 전국 행정동·행정읍면 경계로 픽셀 중심을 분류합니다. 경계 내부 픽셀만 원본 스캔 행·열, 위경도, 행정동 코드, I5 밝기온도(K), NASA 품질 플래그와 함께 저장합니다. 결측 밝기온도는 null입니다. `data/silver/viirs/<경계버전>/YYYY/MM/DD/`의 장면별 Parquet에서 `dong_code`로 동별 데이터를 조회할 수 있습니다. 경계선에 정확히 놓인 중심점은 제외합니다. 좌표 재격자화와 보간은 수행하지 않습니다.
