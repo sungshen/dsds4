@@ -1,2 +1,4 @@
 .env 
 .venv/
+/data/bronze/viirs/
+/data/silver/viirs/

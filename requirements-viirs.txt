@@ -1,0 +1,5 @@
+requests>=2.32
+netCDF4>=1.7
+numpy>=1.26
+geopandas>=1.0
+pyarrow>=17
