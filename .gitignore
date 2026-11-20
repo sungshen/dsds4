@@ -2,3 +2,6 @@
 .venv/
 /data/bronze/viirs/
 /data/silver/viirs/
+
+# VIIRS L2G(VNP09GA 등) 원본·Silver 이미지 (용량 큼, scripts/viirs_*.py 로 재생성)
+/data/viirs/

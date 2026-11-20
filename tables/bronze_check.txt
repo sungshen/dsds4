@@ -1,0 +1,12 @@
+[PASS] 검색 결과 수(CMR-Hits 합) = search_results 행 수  (2238 vs 2238)
+[PASS] 모든 월 검색에서 CMR-Hits = 저장 행 수(paging 끝까지)
+[PASS] 기간 내 product_id 중복 없음  (월 경계 중복(다음 달 1일 granule, in_period=False) 72행은 검색 원문 그대로 보존)
+[PASS] 로컬에서 내린 원본(.h5)은 sha256·사유 기록, .cmr.xml 은 모두 보존  (내린 .h5 262개 (재다운로드 가능))
+[PASS] manifest 경로 ↔ 실제 파일 1:1 (로컬 보관분)  (files 810, manifest 810)
+[PASS] manifest (product_id, asset) 중복 없음
+[PASS] 모든 파일 sha256 재계산 일치  (불일치 0)
+[PASS] 실패 asset 은 사유 기록  (실패 0)
+[PASS] 촬영시각은 원천 metadata 값(UTC 'Z' 포함)
+[PASS] 0건 날짜는 상태·사유 기록  (30일)
+[PASS] 키/토큰 문자열이 표·코드·설정에 없음
+[PASS] 파일 속성 시각 범위 = CMR 촬영시각(날짜)

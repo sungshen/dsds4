@@ -1,0 +1,27 @@
+column_name,source_metadata_path,description,dtype,unit,role,spatial_resolution,temporal_resolution,calculation_rule,mask_rule,availability_rule,source_product_ids
+observation_id,-,원천/제품/촬영일/생산시각/처리버전 결합 ID,str,-,key,-,per observation (daily L2G; precision day),{product}.002_{YYYYMMDD}_{production}_{processing_version},-,always,source_product_ids column
+adm_cd2,config geojson adm_cd2,행정동 코드(행안부 10자리),str,-,key,dong,per observation (daily L2G; precision day),-,-,always,source_product_ids column
+admin_boundary_version,-,행정동 경계 버전,str,-,key,-,per observation (daily L2G; precision day),현재 unknown(출처 확인 필요),-,always,source_product_ids column
+observation_time,CMR time_start / file RangeBeginningDate,L2G 일 합성 시작(UTC 00:00),datetime,UTC,time,-,per observation (daily L2G; precision day),원천값 그대로,-,always,source_product_ids column
+overpass_window_start_utc / _end_utc,CMR VxxO3MOD day granules over Seoul bbox,그날 서울 상공 주간 L1B granule 시각 범위(실제 촬영은 이 안),datetime,UTC,time,-,per observation (daily L2G; precision day),"min(start), max(end)",-,CMR 조회 결과 없으면 빈값,source_product_ids column
+total_px_500m,admin_pixel_weights,행정동 내부 분석대상 pixel 수(겹침 면적비 합),float,pixel,denominator,463 m grid,per observation (daily L2G; precision day),sum(overlap_area/pixel_area),padding 없음,always,source_product_ids column
+n_pixels_touched_500m,admin_pixel_weights,행정동과 겹치는 pixel 개수,int,count,qc,463 m grid,per observation (daily L2G; precision day),count,-,always,source_product_ids column
+coverage_fraction_500m,fill / num_observations,관측 있는 면적 비율,float,ratio,qc,463 m grid,per observation (daily L2G; precision day),covered/total,-,always,source_product_ids column
+valid_fraction_500m,mask,standard mask 통과 면적 비율,float,ratio,qc,463 m grid,per observation (daily L2G; precision day),valid/total,standard,always,source_product_ids column
+valid_fraction_strict_500m,mask,"strict mask(AOT 품질, 구름인접 추가 제외) 통과 비율",float,ratio,qc,463 m grid,per observation (daily L2G; precision day),valid_strict/total,strict,always,source_product_ids column
+cloud_fraction_500m,QF1 bits2-3,covered 중 probably/confident cloudy 비율,float,ratio,qc,463 m grid,per observation (daily L2G; precision day),cloud/covered,-,covered=0 이면 null,source_product_ids column
+shadow_fraction_500m,QF2 bit3,covered 중 cloud shadow 비율,float,ratio,qc,463 m grid,per observation (daily L2G; precision day),shadow/covered,-,covered=0 이면 null,source_product_ids column
+aot_quality_bad_fraction_500m,QF4 bit4 (=QF5/QF6 overall SR bad),covered 중 AOT 품질 bad 비율,float,ratio,qc,463 m grid,per observation (daily L2G; precision day),aot_bad/covered,-,covered=0 이면 null,source_product_ids column
+total_px_1km,admin_pixel_weights,행정동 내부 분석대상 pixel 수(겹침 면적비 합),float,pixel,denominator,927 m grid,per observation (daily L2G; precision day),sum(overlap_area/pixel_area),padding 없음,always,source_product_ids column
+n_pixels_touched_1km,admin_pixel_weights,행정동과 겹치는 pixel 개수,int,count,qc,927 m grid,per observation (daily L2G; precision day),count,-,always,source_product_ids column
+coverage_fraction_1km,fill / num_observations,관측 있는 면적 비율,float,ratio,qc,927 m grid,per observation (daily L2G; precision day),covered/total,-,always,source_product_ids column
+valid_fraction_1km,mask,standard mask 통과 면적 비율,float,ratio,qc,927 m grid,per observation (daily L2G; precision day),valid/total,standard,always,source_product_ids column
+valid_fraction_strict_1km,mask,"strict mask(AOT 품질, 구름인접 추가 제외) 통과 비율",float,ratio,qc,927 m grid,per observation (daily L2G; precision day),valid_strict/total,strict,always,source_product_ids column
+cloud_fraction_1km,QF1 bits2-3,covered 중 probably/confident cloudy 비율,float,ratio,qc,927 m grid,per observation (daily L2G; precision day),cloud/covered,-,covered=0 이면 null,source_product_ids column
+shadow_fraction_1km,QF2 bit3,covered 중 cloud shadow 비율,float,ratio,qc,927 m grid,per observation (daily L2G; precision day),shadow/covered,-,covered=0 이면 null,source_product_ids column
+aot_quality_bad_fraction_1km,QF4 bit4 (=QF5/QF6 overall SR bad),covered 중 AOT 품질 bad 비율,float,ratio,qc,927 m grid,per observation (daily L2G; precision day),aot_bad/covered,-,covered=0 이면 null,source_product_ids column
+ndvi_500m,SurfReflect bands,(I2-I1)/(I2+I1); 행정동 면적가중 평균,float,unitless (-1..1),feature,500m,per observation (daily L2G; precision day),valid pixel 에서 pixel 지수 후 겹침면적 가중평균; 분모<=0 또는 음수 반사도 pixel 은 null,standard,valid 0 이면 null + index_unavailable_reason; 강수량·피해 Label 아님,source_product_ids column
+ndwi_gao_500m,SurfReflect bands,(I2-I3)/(I2+I3)  식생·지표 수분(Gao); 행정동 면적가중 평균,float,unitless (-1..1),feature,500m,per observation (daily L2G; precision day),valid pixel 에서 pixel 지수 후 겹침면적 가중평균; 분모<=0 또는 음수 반사도 pixel 은 null,standard,valid 0 이면 null + index_unavailable_reason; 강수량·피해 Label 아님,source_product_ids column
+mndwi_1km,SurfReflect bands,(M4-M10)/(M4+M10)  수역(Xu); 행정동 면적가중 평균,float,unitless (-1..1),feature,1km,per observation (daily L2G; precision day),valid pixel 에서 pixel 지수 후 겹침면적 가중평균; 분모<=0 또는 음수 반사도 pixel 은 null,standard,valid 0 이면 null + index_unavailable_reason; 강수량·피해 Label 아님,source_product_ids column
+ndwi_mcfeeters_1km,SurfReflect bands,(M4-M7)/(M4+M7)  수역(McFeeters); 행정동 면적가중 평균,float,unitless (-1..1),feature,1km,per observation (daily L2G; precision day),valid pixel 에서 pixel 지수 후 겹침면적 가중평균; 분모<=0 또는 음수 반사도 pixel 은 null,standard,valid 0 이면 null + index_unavailable_reason; 강수량·피해 Label 아님,source_product_ids column
+index_unavailable_reason,-,지수 null 사유,str,-,qc,-,per observation (daily L2G; precision day),-,-,지수 null 일 때,source_product_ids column

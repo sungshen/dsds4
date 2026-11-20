@@ -1,0 +1,16 @@
+[PASS] Bronze granule 수 = Silver 관측 수  (536 vs 536)
+[PASS] silver_index 행 = 관측 x 행정동  (227800 = 536 x 425)
+[PASS] (observation_id, adm_cd2) 중복 없음
+[PASS] 모든 비율 0~1 (null 제외)
+[PASS] valid <= coverage (500m)
+[PASS] strict valid <= valid (500m)
+[PASS] valid <= coverage (1km)
+[PASS] strict valid <= valid (1km)
+[PASS] pixel 가중치 면적 합 = 행정동 면적 (500m)  (max rel err 1.86e-12)
+[PASS] 모든 행정동이 pixel 가중치 보유 (500m)
+[PASS] pixel 가중치 면적 합 = 행정동 면적 (1km)  (max rel err 4.44e-12)
+[PASS] 모든 행정동이 pixel 가중치 보유 (1km)
+[PASS] 지수 null 행은 index_unavailable_reason 기록
+[PASS] 지수 값 -1~1
+[PASS] 지수 0 채움 없음(valid 0 인데 값 있는 행 없음)
+[PASS] crop_index checksum(출력·Bronze 계보) 일치  (불일치 0)

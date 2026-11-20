@@ -1,0 +1,38 @@
+{
+  "source_role": "추가 보조 원천 (가이드라인 미명시, 국토위성 주 경로를 대체하지 않음)",
+  "products": [
+    {
+      "short_name": "VNP09GA",
+      "version": "002",
+      "concept_id": "C2631841556-LPCLOUD",
+      "platform": "Suomi-NPP"
+    },
+    {
+      "short_name": "VJ109GA",
+      "version": "002",
+      "concept_id": "C2631841524-LPCLOUD",
+      "platform": "NOAA-20"
+    },
+    {
+      "short_name": "VJ209GA",
+      "version": "002",
+      "concept_id": "C2817354878-LPCLOUD",
+      "platform": "NOAA-21"
+    }
+  ],
+  "aoi_id": "seoul_admdong_all",
+  "aoi_file": "config/hangjeongdong_서울특별시.geojson",
+  "search_period_start": "2024-01-01T00:00:00Z",
+  "search_period_end": "2026-01-01T00:00:00Z",
+  "search_interval": "month",
+  "download_months": [
+    "2024-07",
+    "2024-08",
+    "2024-09",
+    "2024-10",
+    "2024-11",
+    "2024-12"
+  ],
+  "cmr_url": "https://cmr.earthdata.nasa.gov/search/granules.json",
+  "page_size": 200
+}
