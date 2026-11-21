@@ -2,3 +2,7 @@
 .venv/
 /data/bronze/viirs/
 /data/silver/viirs/
+
+# 국토위성(NGII) 원본 zip (용량 큼, docs/tickets/NGII-01 절차로 재다운로드. 메타데이터·sha256은 tables/ngii/ 에 커밋)
+/data/ngii/
+__pycache__/
