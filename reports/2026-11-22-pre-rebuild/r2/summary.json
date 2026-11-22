@@ -1,0 +1,30 @@
+{
+  "source": "Cloudflare R2",
+  "bucket": "dsds4",
+  "prefix": "viirs-daily",
+  "years": [
+    2024,
+    2025
+  ],
+  "boundary_versions": {
+    "2024": "sgis-2024-2q",
+    "2025": "sgis-2025-2q"
+  },
+  "mode": "inventory + HEAD only",
+  "dates_checked": 731,
+  "date_status_counts": {
+    "PASS": 711,
+    "UNVERIFIED_NO_OBJECTS": 20
+  },
+  "object_count": 2844,
+  "issue_counts": {
+    "NO_OBJECTS": 20
+  },
+  "notes": [
+    "No satellite CMR query: empty dates are UNVERIFIED, not proven missing.",
+    "Inventory + HEAD cannot prove that object contents are undamaged.",
+    "For full contents verification, rerun with --deep; Bronze requires --deep-bronze.",
+    "This tool does not verify that selected swaths are closest to 12:00 KST.",
+    "R2 data was never modified by this program."
+  ]
+}

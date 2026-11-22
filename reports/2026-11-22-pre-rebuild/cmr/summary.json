@@ -1,0 +1,13 @@
+{
+  "mode": "READ_ONLY",
+  "days_checked": 20,
+  "status_counts": {
+    "NO_PAIRED_CMR_OBSERVATION": 20
+  },
+  "results": "cmr_missing_report/cmr_daily_status.csv",
+  "cautions": [
+    "No paired CMR observations means the original selection did not provide a matching pair; it does not prove no satellite pass.",
+    "A recovered day must be independently re-audited, preferably with --deep.",
+    "The original viirs_s3.py controls download/processing/upload behavior in --apply mode."
+  ]
+}

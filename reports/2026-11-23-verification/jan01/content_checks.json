@@ -1,0 +1,769 @@
+{
+  "viirs-daily/silver/sgis-2024-2q/2024/01/01/all-observations.parquet": {
+    "downloaded_bytes": 24943028,
+    "sha256": "dA3kpTQ69rGJzYwpRcFGAB3kGP+J3UOdUHVczxwFVIw=",
+    "row_count": 2342630,
+    "columns": [
+      "dong_code",
+      "row",
+      "column",
+      "longitude",
+      "latitude",
+      "i05_brightness_temperature_k",
+      "i05_quality_flags",
+      "swath_id",
+      "swath_start_utc",
+      "scan_index",
+      "scan_start_time_tai93_s"
+    ],
+    "swaths": [
+      "A2023365.1618",
+      "A2023365.1624",
+      "A2023365.1800",
+      "A2024001.0342",
+      "A2024001.0524"
+    ]
+  },
+  "viirs-daily/quality/sgis-2024-2q/2024/01/01/all-observations.json": {
+    "downloaded_bytes": 25417,
+    "sha256": "Hq3lU0UlkWCklmhf0Ll2LHq1253L+TfaCWZzErNJvK4=",
+    "json_fields": [
+      "boundary_sha256",
+      "boundary_version",
+      "cloud_qc_status",
+      "date_kst",
+      "finite_temperature",
+      "flagged",
+      "input_fingerprint",
+      "per_scene",
+      "pipeline_version",
+      "pixel_count",
+      "processing_code_hashes",
+      "processing_code_sha256",
+      "scan_time",
+      "source_scene_count",
+      "status",
+      "valid_flag_zero_temperature",
+      "valid_fraction_denominator",
+      "warning"
+    ],
+    "payload": {
+      "pipeline_version": "all-scenes-scan-time-v2.1",
+      "date_kst": "2024-01-01",
+      "boundary_version": "sgis-2024-2q",
+      "source_scene_count": 6,
+      "pixel_count": 2342630,
+      "per_scene": {
+        "A2023365.1618": {
+          "pixel_count": 120993,
+          "finite_temperature": 90719,
+          "flagged": 30274,
+          "valid_flag_zero_temperature": 90719,
+          "source_metadata": {
+            "swath_id": "A2023365.1618",
+            "native_grid": "geolocated swath pixel centers",
+            "resampling": "none",
+            "cloud_qc_status": "unverified",
+            "products": {
+              "VNP02IMG": {
+                "filename": "VNP02IMG.A2023365.1618.002.2024006094232.nc",
+                "attributes": {
+                  "product_name": "VNP02IMG.A2023365.1618.002.2024006094232.nc",
+                  "time_coverage_start": "2023-12-31T16:18:00.000Z",
+                  "time_coverage_end": "2023-12-31T16:24:00.000Z",
+                  "processing_level": "L1B",
+                  "platform": "Suomi-NPP",
+                  "instrument": "VIIRS"
+                },
+                "variables": {
+                  "observation_data/I05": {
+                    "shape": [
+                      6496,
+                      6400
+                    ],
+                    "dtype": "uint16",
+                    "units": "Watts/meter^2/steradian/micrometer",
+                    "long_name": "I-band 05 observations at pixel locations",
+                    "scale_factor": "0.0003815221",
+                    "add_offset": "0.141121",
+                    "_FillValue": "65535",
+                    "flag_meanings": "Missing_EV Bowtie_Deleted Cal_Fail"
+                  },
+                  "observation_data/I05_brightness_temperature_lut": {
+                    "shape": [
+                      65536
+                    ],
+                    "dtype": "float32",
+                    "units": "Kelvin",
+                    "long_name": "I-band 05 brightness temperature lookup table",
+                    "_FillValue": "-999.9"
+                  },
+                  "observation_data/I05_quality_flags": {
+                    "shape": [
+                      6496,
+                      6400
+                    ],
+                    "dtype": "uint16",
+                    "units": "none",
+                    "long_name": "I-band 05 quality flags",
+                    "flag_masks": "[   1    2    4    8  256  512 1024 2048 4096]",
+                    "flag_meanings": "Substitute_Cal Out_of_Range Saturation Temp_not_Nominal Bowtie_Deleted Missing_EV Cal_Fail Dead_Detector Noisy_Detector"
+                  }
+                }
+              },
+              "VNP03IMG": {
+                "filename": "VNP03IMG.A2023365.1618.002.2024006064805.nc",
+                "attributes": {
+                  "product_name": "VNP03IMG.A2023365.1618.002.2024006064805.nc",
+                  "time_coverage_start": "2023-12-31T16:18:00.000Z",
+                  "time_coverage_end": "2023-12-31T16:24:00.000Z",
+                  "processing_level": "GEO",
+                  "platform": "Suomi-NPP",
+                  "instrument": "VIIRS"
+                },
+                "variables": {
+                  "geolocation_data/longitude": {
+                    "shape": [
+                      6496,
+                      6400
+                    ],
+                    "dtype": "float32",
+                    "units": "degrees_east",
+                    "long_name": "Longitudes of pixel locations",
+                    "_FillValue": "-999.9"
+                  },
+                  "geolocation_data/latitude": {
+                    "shape": [
+                      6496,
+                      6400
+                    ],
+                    "dtype": "float32",
+                    "units": "degrees_north",
+                    "long_name": "Latitudes of pixel locations",
+                    "_FillValue": "-999.9"
+                  },
+                  "scan_line_attributes/scan_start_time": {
+                    "shape": [
+                      203
+                    ],
+                    "dtype": "float64",
+                    "units": "seconds",
+                    "long_name": "Scan start time (TAI93)",
+                    "_FillValue": "-999.9"
+                  }
+                }
+              }
+            }
+          },
+          "source_sha256": {
+            "VNP02IMG": "WmcJAZNXkj8sLn5DDyL+KHIqurwBEN4nnFvuMlMzGXY=",
+            "VNP03IMG": "H/Yreog/TQWPmrygrfNw2pPthc0jpU9SSA9hNxW7JyM="
+          },
+          "bronze_status": [
+            "SKIPPED_EXISTING",
+            "SKIPPED_EXISTING"
+          ]
+        },
+        "A2023365.1624": {
+          "pixel_count": 395777,
+          "finite_temperature": 296571,
+          "flagged": 99206,
+          "valid_flag_zero_temperature": 296571,
+          "source_metadata": {
+            "swath_id": "A2023365.1624",
+            "native_grid": "geolocated swath pixel centers",
+            "resampling": "none",
+            "cloud_qc_status": "unverified",
+            "products": {
+              "VNP02IMG": {
+                "filename": "VNP02IMG.A2023365.1624.002.2024006094333.nc",
+                "attributes": {
+                  "product_name": "VNP02IMG.A2023365.1624.002.2024006094333.nc",
+                  "time_coverage_start": "2023-12-31T16:24:00.000Z",
+                  "time_coverage_end": "2023-12-31T16:30:00.000Z",
+                  "processing_level": "L1B",
+                  "platform": "Suomi-NPP",
+                  "instrument": "VIIRS"
+                },
+                "variables": {
+                  "observation_data/I05": {
+                    "shape": [
+                      6464,
+                      6400
+                    ],
+                    "dtype": "uint16",
+                    "units": "Watts/meter^2/steradian/micrometer",
+                    "long_name": "I-band 05 observations at pixel locations",
+                    "scale_factor": "0.0003815221",
+                    "add_offset": "0.141121",
+                    "_FillValue": "65535",
+                    "flag_meanings": "Missing_EV Bowtie_Deleted Cal_Fail"
+                  },
+                  "observation_data/I05_brightness_temperature_lut": {
+                    "shape": [
+                      65536
+                    ],
+                    "dtype": "float32",
+                    "units": "Kelvin",
+                    "long_name": "I-band 05 brightness temperature lookup table",
+                    "_FillValue": "-999.9"
+                  },
+                  "observation_data/I05_quality_flags": {
+                    "shape": [
+                      6464,
+                      6400
+                    ],
+                    "dtype": "uint16",
+                    "units": "none",
+                    "long_name": "I-band 05 quality flags",
+                    "flag_masks": "[   1    2    4    8  256  512 1024 2048 4096]",
+                    "flag_meanings": "Substitute_Cal Out_of_Range Saturation Temp_not_Nominal Bowtie_Deleted Missing_EV Cal_Fail Dead_Detector Noisy_Detector"
+                  }
+                }
+              },
+              "VNP03IMG": {
+                "filename": "VNP03IMG.A2023365.1624.002.2024006064819.nc",
+                "attributes": {
+                  "product_name": "VNP03IMG.A2023365.1624.002.2024006064819.nc",
+                  "time_coverage_start": "2023-12-31T16:24:00.000Z",
+                  "time_coverage_end": "2023-12-31T16:30:00.000Z",
+                  "processing_level": "GEO",
+                  "platform": "Suomi-NPP",
+                  "instrument": "VIIRS"
+                },
+                "variables": {
+                  "geolocation_data/longitude": {
+                    "shape": [
+                      6464,
+                      6400
+                    ],
+                    "dtype": "float32",
+                    "units": "degrees_east",
+                    "long_name": "Longitudes of pixel locations",
+                    "_FillValue": "-999.9"
+                  },
+                  "geolocation_data/latitude": {
+                    "shape": [
+                      6464,
+                      6400
+                    ],
+                    "dtype": "float32",
+                    "units": "degrees_north",
+                    "long_name": "Latitudes of pixel locations",
+                    "_FillValue": "-999.9"
+                  },
+                  "scan_line_attributes/scan_start_time": {
+                    "shape": [
+                      202
+                    ],
+                    "dtype": "float64",
+                    "units": "seconds",
+                    "long_name": "Scan start time (TAI93)",
+                    "_FillValue": "-999.9"
+                  }
+                }
+              }
+            }
+          },
+          "source_sha256": {
+            "VNP02IMG": "wT5VExXLwtcX/q2Zk+WJkgp4UlZP5GFwABi1a7ZfiqU=",
+            "VNP03IMG": "Olj/UQ5oHb+crzRQ8UXPAN+EfnoRrsqvf1WWUEPkiqs="
+          },
+          "bronze_status": [
+            "SKIPPED_EXISTING",
+            "SKIPPED_EXISTING"
+          ]
+        },
+        "A2023365.1800": {
+          "pixel_count": 685031,
+          "finite_temperature": 522536,
+          "flagged": 162495,
+          "valid_flag_zero_temperature": 522536,
+          "source_metadata": {
+            "swath_id": "A2023365.1800",
+            "native_grid": "geolocated swath pixel centers",
+            "resampling": "none",
+            "cloud_qc_status": "unverified",
+            "products": {
+              "VNP02IMG": {
+                "filename": "VNP02IMG.A2023365.1800.002.2024006094418.nc",
+                "attributes": {
+                  "product_name": "VNP02IMG.A2023365.1800.002.2024006094418.nc",
+                  "time_coverage_start": "2023-12-31T18:00:00.000Z",
+                  "time_coverage_end": "2023-12-31T18:06:00.000Z",
+                  "processing_level": "L1B",
+                  "platform": "Suomi-NPP",
+                  "instrument": "VIIRS"
+                },
+                "variables": {
+                  "observation_data/I05": {
+                    "shape": [
+                      6464,
+                      6400
+                    ],
+                    "dtype": "uint16",
+                    "units": "Watts/meter^2/steradian/micrometer",
+                    "long_name": "I-band 05 observations at pixel locations",
+                    "scale_factor": "0.0003815221",
+                    "add_offset": "0.141121",
+                    "_FillValue": "65535",
+                    "flag_meanings": "Missing_EV Bowtie_Deleted Cal_Fail"
+                  },
+                  "observation_data/I05_brightness_temperature_lut": {
+                    "shape": [
+                      65536
+                    ],
+                    "dtype": "float32",
+                    "units": "Kelvin",
+                    "long_name": "I-band 05 brightness temperature lookup table",
+                    "_FillValue": "-999.9"
+                  },
+                  "observation_data/I05_quality_flags": {
+                    "shape": [
+                      6464,
+                      6400
+                    ],
+                    "dtype": "uint16",
+                    "units": "none",
+                    "long_name": "I-band 05 quality flags",
+                    "flag_masks": "[   1    2    4    8  256  512 1024 2048 4096]",
+                    "flag_meanings": "Substitute_Cal Out_of_Range Saturation Temp_not_Nominal Bowtie_Deleted Missing_EV Cal_Fail Dead_Detector Noisy_Detector"
+                  }
+                }
+              },
+              "VNP03IMG": {
+                "filename": "VNP03IMG.A2023365.1800.002.2024006070155.nc",
+                "attributes": {
+                  "product_name": "VNP03IMG.A2023365.1800.002.2024006070155.nc",
+                  "time_coverage_start": "2023-12-31T18:00:00.000Z",
+                  "time_coverage_end": "2023-12-31T18:06:00.000Z",
+                  "processing_level": "GEO",
+                  "platform": "Suomi-NPP",
+                  "instrument": "VIIRS"
+                },
+                "variables": {
+                  "geolocation_data/longitude": {
+                    "shape": [
+                      6464,
+                      6400
+                    ],
+                    "dtype": "float32",
+                    "units": "degrees_east",
+                    "long_name": "Longitudes of pixel locations",
+                    "_FillValue": "-999.9"
+                  },
+                  "geolocation_data/latitude": {
+                    "shape": [
+                      6464,
+                      6400
+                    ],
+                    "dtype": "float32",
+                    "units": "degrees_north",
+                    "long_name": "Latitudes of pixel locations",
+                    "_FillValue": "-999.9"
+                  },
+                  "scan_line_attributes/scan_start_time": {
+                    "shape": [
+                      202
+                    ],
+                    "dtype": "float64",
+                    "units": "seconds",
+                    "long_name": "Scan start time (TAI93)",
+                    "_FillValue": "-999.9"
+                  }
+                }
+              }
+            }
+          },
+          "source_sha256": {
+            "VNP02IMG": "rHd9/i+K4TPkb3MuMS21AtP2Wyunqtj94s4ceg6Vjcc=",
+            "VNP03IMG": "ey1CE6DJ8AlOnUXcofkqZ9vRjDx1WXUdlr/Ju15KfvI="
+          },
+          "bronze_status": [
+            "SKIPPED_EXISTING",
+            "SKIPPED_EXISTING"
+          ]
+        },
+        "A2023365.1806": {
+          "pixel_count": 0,
+          "finite_temperature": 0,
+          "flagged": 0,
+          "valid_flag_zero_temperature": 0,
+          "source_metadata": {
+            "swath_id": "A2023365.1806",
+            "native_grid": "geolocated swath pixel centers",
+            "resampling": "none",
+            "cloud_qc_status": "unverified",
+            "products": {
+              "VNP02IMG": {
+                "filename": "VNP02IMG.A2023365.1806.002.2024006094402.nc",
+                "attributes": {
+                  "product_name": "VNP02IMG.A2023365.1806.002.2024006094402.nc",
+                  "time_coverage_start": "2023-12-31T18:06:00.000Z",
+                  "time_coverage_end": "2023-12-31T18:12:00.000Z",
+                  "processing_level": "L1B",
+                  "platform": "Suomi-NPP",
+                  "instrument": "VIIRS"
+                },
+                "variables": {
+                  "observation_data/I05": {
+                    "shape": [
+                      6496,
+                      6400
+                    ],
+                    "dtype": "uint16",
+                    "units": "Watts/meter^2/steradian/micrometer",
+                    "long_name": "I-band 05 observations at pixel locations",
+                    "scale_factor": "0.0003815221",
+                    "add_offset": "0.141121",
+                    "_FillValue": "65535",
+                    "flag_meanings": "Missing_EV Bowtie_Deleted Cal_Fail"
+                  },
+                  "observation_data/I05_brightness_temperature_lut": {
+                    "shape": [
+                      65536
+                    ],
+                    "dtype": "float32",
+                    "units": "Kelvin",
+                    "long_name": "I-band 05 brightness temperature lookup table",
+                    "_FillValue": "-999.9"
+                  },
+                  "observation_data/I05_quality_flags": {
+                    "shape": [
+                      6496,
+                      6400
+                    ],
+                    "dtype": "uint16",
+                    "units": "none",
+                    "long_name": "I-band 05 quality flags",
+                    "flag_masks": "[   1    2    4    8  256  512 1024 2048 4096]",
+                    "flag_meanings": "Substitute_Cal Out_of_Range Saturation Temp_not_Nominal Bowtie_Deleted Missing_EV Cal_Fail Dead_Detector Noisy_Detector"
+                  }
+                }
+              },
+              "VNP03IMG": {
+                "filename": "VNP03IMG.A2023365.1806.002.2024006070145.nc",
+                "attributes": {
+                  "product_name": "VNP03IMG.A2023365.1806.002.2024006070145.nc",
+                  "time_coverage_start": "2023-12-31T18:06:00.000Z",
+                  "time_coverage_end": "2023-12-31T18:12:00.000Z",
+                  "processing_level": "GEO",
+                  "platform": "Suomi-NPP",
+                  "instrument": "VIIRS"
+                },
+                "variables": {
+                  "geolocation_data/longitude": {
+                    "shape": [
+                      6496,
+                      6400
+                    ],
+                    "dtype": "float32",
+                    "units": "degrees_east",
+                    "long_name": "Longitudes of pixel locations",
+                    "_FillValue": "-999.9"
+                  },
+                  "geolocation_data/latitude": {
+                    "shape": [
+                      6496,
+                      6400
+                    ],
+                    "dtype": "float32",
+                    "units": "degrees_north",
+                    "long_name": "Latitudes of pixel locations",
+                    "_FillValue": "-999.9"
+                  },
+                  "scan_line_attributes/scan_start_time": {
+                    "shape": [
+                      203
+                    ],
+                    "dtype": "float64",
+                    "units": "seconds",
+                    "long_name": "Scan start time (TAI93)",
+                    "_FillValue": "-999.9"
+                  }
+                }
+              }
+            }
+          },
+          "source_sha256": {
+            "VNP02IMG": "kpiBxFz0UUOFxGnEqqS0d4QJAmRET1ttNBqpfSHzgEY=",
+            "VNP03IMG": "0ruvsEx++w/6hUM07y7PZUcSg0nh+337wcRbwwlmMEQ="
+          },
+          "bronze_status": [
+            "SKIPPED_EXISTING",
+            "SKIPPED_EXISTING"
+          ]
+        },
+        "A2024001.0342": {
+          "pixel_count": 642370,
+          "finite_temperature": 499188,
+          "flagged": 143182,
+          "valid_flag_zero_temperature": 499188,
+          "source_metadata": {
+            "swath_id": "A2024001.0342",
+            "native_grid": "geolocated swath pixel centers",
+            "resampling": "none",
+            "cloud_qc_status": "unverified",
+            "products": {
+              "VNP02IMG": {
+                "filename": "VNP02IMG.A2024001.0342.002.2024006095550.nc",
+                "attributes": {
+                  "product_name": "VNP02IMG.A2024001.0342.002.2024006095550.nc",
+                  "time_coverage_start": "2024-01-01T03:42:00.000Z",
+                  "time_coverage_end": "2024-01-01T03:48:00.000Z",
+                  "processing_level": "L1B",
+                  "platform": "Suomi-NPP",
+                  "instrument": "VIIRS"
+                },
+                "variables": {
+                  "observation_data/I05": {
+                    "shape": [
+                      6464,
+                      6400
+                    ],
+                    "dtype": "uint16",
+                    "units": "Watts/meter^2/steradian/micrometer",
+                    "long_name": "I-band 05 observations at pixel locations",
+                    "scale_factor": "0.0003815221",
+                    "add_offset": "0.141121",
+                    "_FillValue": "65535",
+                    "flag_meanings": "Missing_EV Bowtie_Deleted Cal_Fail"
+                  },
+                  "observation_data/I05_brightness_temperature_lut": {
+                    "shape": [
+                      65536
+                    ],
+                    "dtype": "float32",
+                    "units": "Kelvin",
+                    "long_name": "I-band 05 brightness temperature lookup table",
+                    "_FillValue": "-999.9"
+                  },
+                  "observation_data/I05_quality_flags": {
+                    "shape": [
+                      6464,
+                      6400
+                    ],
+                    "dtype": "uint16",
+                    "units": "none",
+                    "long_name": "I-band 05 quality flags",
+                    "flag_masks": "[   1    2    4    8  256  512 1024 2048 4096]",
+                    "flag_meanings": "Substitute_Cal Out_of_Range Saturation Temp_not_Nominal Bowtie_Deleted Missing_EV Cal_Fail Dead_Detector Noisy_Detector"
+                  }
+                }
+              },
+              "VNP03IMG": {
+                "filename": "VNP03IMG.A2024001.0342.002.2024006071619.nc",
+                "attributes": {
+                  "product_name": "VNP03IMG.A2024001.0342.002.2024006071619.nc",
+                  "time_coverage_start": "2024-01-01T03:42:00.000Z",
+                  "time_coverage_end": "2024-01-01T03:48:00.000Z",
+                  "processing_level": "GEO",
+                  "platform": "Suomi-NPP",
+                  "instrument": "VIIRS"
+                },
+                "variables": {
+                  "geolocation_data/longitude": {
+                    "shape": [
+                      6464,
+                      6400
+                    ],
+                    "dtype": "float32",
+                    "units": "degrees_east",
+                    "long_name": "Longitudes of pixel locations",
+                    "_FillValue": "-999.9"
+                  },
+                  "geolocation_data/latitude": {
+                    "shape": [
+                      6464,
+                      6400
+                    ],
+                    "dtype": "float32",
+                    "units": "degrees_north",
+                    "long_name": "Latitudes of pixel locations",
+                    "_FillValue": "-999.9"
+                  },
+                  "scan_line_attributes/scan_start_time": {
+                    "shape": [
+                      202
+                    ],
+                    "dtype": "float64",
+                    "units": "seconds",
+                    "long_name": "Scan start time (TAI93)",
+                    "_FillValue": "-999.9"
+                  }
+                }
+              }
+            }
+          },
+          "source_sha256": {
+            "VNP02IMG": "JlV1lc7cbGFr2iR61l9N9xaLg+ASWSA18PzJ/vMJ1nw=",
+            "VNP03IMG": "Rm+UBhUCt8LNvW5sUTYmgvN/fjpOLI7WIODWomXvTW0="
+          },
+          "bronze_status": [
+            "SKIPPED_EXISTING",
+            "SKIPPED_EXISTING"
+          ]
+        },
+        "A2024001.0524": {
+          "pixel_count": 498459,
+          "finite_temperature": 374009,
+          "flagged": 124450,
+          "valid_flag_zero_temperature": 374009,
+          "source_metadata": {
+            "swath_id": "A2024001.0524",
+            "native_grid": "geolocated swath pixel centers",
+            "resampling": "none",
+            "cloud_qc_status": "unverified",
+            "products": {
+              "VNP02IMG": {
+                "filename": "VNP02IMG.A2024001.0524.002.2024006095705.nc",
+                "attributes": {
+                  "product_name": "VNP02IMG.A2024001.0524.002.2024006095705.nc",
+                  "time_coverage_start": "2024-01-01T05:24:00.000Z",
+                  "time_coverage_end": "2024-01-01T05:30:00.000Z",
+                  "processing_level": "L1B",
+                  "platform": "Suomi-NPP",
+                  "instrument": "VIIRS"
+                },
+                "variables": {
+                  "observation_data/I05": {
+                    "shape": [
+                      6464,
+                      6400
+                    ],
+                    "dtype": "uint16",
+                    "units": "Watts/meter^2/steradian/micrometer",
+                    "long_name": "I-band 05 observations at pixel locations",
+                    "scale_factor": "0.0003815221",
+                    "add_offset": "0.141121",
+                    "_FillValue": "65535",
+                    "flag_meanings": "Missing_EV Bowtie_Deleted Cal_Fail"
+                  },
+                  "observation_data/I05_brightness_temperature_lut": {
+                    "shape": [
+                      65536
+                    ],
+                    "dtype": "float32",
+                    "units": "Kelvin",
+                    "long_name": "I-band 05 brightness temperature lookup table",
+                    "_FillValue": "-999.9"
+                  },
+                  "observation_data/I05_quality_flags": {
+                    "shape": [
+                      6464,
+                      6400
+                    ],
+                    "dtype": "uint16",
+                    "units": "none",
+                    "long_name": "I-band 05 quality flags",
+                    "flag_masks": "[   1    2    4    8  256  512 1024 2048 4096]",
+                    "flag_meanings": "Substitute_Cal Out_of_Range Saturation Temp_not_Nominal Bowtie_Deleted Missing_EV Cal_Fail Dead_Detector Noisy_Detector"
+                  }
+                }
+              },
+              "VNP03IMG": {
+                "filename": "VNP03IMG.A2024001.0524.002.2024006071809.nc",
+                "attributes": {
+                  "product_name": "VNP03IMG.A2024001.0524.002.2024006071809.nc",
+                  "time_coverage_start": "2024-01-01T05:24:00.000Z",
+                  "time_coverage_end": "2024-01-01T05:30:00.000Z",
+                  "processing_level": "GEO",
+                  "platform": "Suomi-NPP",
+                  "instrument": "VIIRS"
+                },
+                "variables": {
+                  "geolocation_data/longitude": {
+                    "shape": [
+                      6464,
+                      6400
+                    ],
+                    "dtype": "float32",
+                    "units": "degrees_east",
+                    "long_name": "Longitudes of pixel locations",
+                    "_FillValue": "-999.9"
+                  },
+                  "geolocation_data/latitude": {
+                    "shape": [
+                      6464,
+                      6400
+                    ],
+                    "dtype": "float32",
+                    "units": "degrees_north",
+                    "long_name": "Latitudes of pixel locations",
+                    "_FillValue": "-999.9"
+                  },
+                  "scan_line_attributes/scan_start_time": {
+                    "shape": [
+                      202
+                    ],
+                    "dtype": "float64",
+                    "units": "seconds",
+                    "long_name": "Scan start time (TAI93)",
+                    "_FillValue": "-999.9"
+                  }
+                }
+              }
+            }
+          },
+          "source_sha256": {
+            "VNP02IMG": "FRDHSNcl6SyN47kYZ9hn/Zxmabrdz4G07+C3Lb9T3fs=",
+            "VNP03IMG": "oDhvQAq1PUWrwP0wyra08AhSrXWovlW1qDzWj8woOok="
+          },
+          "bronze_status": [
+            "SKIPPED_EXISTING",
+            "SKIPPED_EXISTING"
+          ]
+        }
+      },
+      "finite_temperature": 1783023,
+      "flagged": 559607,
+      "valid_flag_zero_temperature": 1783023,
+      "input_fingerprint": "cc4ed945ff78413d016e361da08ecc8b5bc7c35c7519c4161dd5ca1c0a5e999b",
+      "processing_code_sha256": "5eaa108385f35ece35e2fcfa6e96e4bfadd1007aa7df43e0e4161f46ceae5503",
+      "processing_code_hashes": {
+        "viirs_full_rebuild.py": "a0a257924e5cc7c4c491994980b9bee017b9f9774def38daa75953d893c05b83",
+        "viirs_pipeline.py": "61ab6f8bde2a24bb3c4510f40bd14346726cfa815bda7d517ec9d5c2b62ce2c9",
+        "viirs_s3.py": "a0d314701b5d7e052bc48c401ccfe4a06719dde9d181c51e5cc40dc0ed1495fa"
+      },
+      "boundary_sha256": "b82ee15bbf3c5aad89b0747d548e35dec7e7af88662db8395263f2586d560840",
+      "cloud_qc_status": "unverified",
+      "valid_fraction_denominator": "all Silver pixels assigned to each dong and swath",
+      "status": "GENERATED",
+      "warning": "A CMR BBOX match can contain no pixels inside Korean administrative polygons",
+      "scan_time": "TAI93 scan start, duplicated per scan pixel; exact pixel exposure unknown"
+    }
+  },
+  "viirs-daily/gold/sgis-2024-2q/2024/01/01/dong-observations.parquet": {
+    "downloaded_bytes": 466720,
+    "sha256": "aZD6WJWZuZRqsKBXT8GHcawJuXPX3ExWAay6Lq/hyHU=",
+    "row_count": 14375,
+    "columns": [
+      "date",
+      "boundary_version",
+      "dong_code",
+      "swath_id",
+      "swath_start_utc",
+      "first_scan_start_time_tai93_s",
+      "last_scan_start_time_tai93_s",
+      "pixel_count",
+      "finite_temperature_count",
+      "flagged_count",
+      "valid_count",
+      "temperature_mean_k",
+      "temperature_min_k",
+      "temperature_max_k",
+      "valid_fraction"
+    ],
+    "swaths": [
+      "A2023365.1618",
+      "A2023365.1624",
+      "A2023365.1800",
+      "A2024001.0342",
+      "A2024001.0524"
+    ],
+    "count_totals": {
+      "pixel_count": 2342630,
+      "valid_count": 1783023
+    }
+  }
+}

@@ -1,0 +1,27 @@
+[Unit]
+Description=DSDS VIIRS all-observation Bronze Silver Gold rebuild
+Wants=network-online.target
+After=network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/viirs
+Environment=OPENBLAS_NUM_THREADS=1
+Environment=OMP_NUM_THREADS=1
+Environment=NUMEXPR_NUM_THREADS=1
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/root/viirs/.venv/bin/python -u /root/viirs/viirs_full_rebuild.py --start 2024-01-01 --stop 2026-01-01
+Restart=on-failure
+RestartSec=60
+MemoryHigh=650M
+MemoryMax=750M
+MemorySwapMax=1G
+OOMPolicy=stop
+Nice=5
+TimeoutStopSec=30
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

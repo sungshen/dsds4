@@ -1,0 +1,32 @@
+{
+  "source": "Cloudflare R2",
+  "bucket": "dsds4",
+  "prefix": "viirs-daily",
+  "years": [
+    2024,
+    2025
+  ],
+  "checked_at_utc": "2026-11-22T17:36:49.825355+00:00",
+  "start_kst": "2024-01-01",
+  "stop_kst_exclusive": "2024-01-02",
+  "boundary_versions": {
+    "2024": "sgis-2024-2q",
+    "2025": "sgis-2025-2q"
+  },
+  "mode": "deep",
+  "dates_checked": 1,
+  "date_status_counts": {
+    "PASS": 1
+  },
+  "object_count": 16,
+  "issue_counts": {},
+  "notes": [
+    "No satellite CMR query: empty dates are UNVERIFIED, not proven missing.",
+    "Inventory + HEAD cannot prove that object contents are undamaged.",
+    "For full contents verification, rerun with --deep; Bronze requires --deep-bronze.",
+    "CMR selection completeness, land coverage and sensor/cloud QA require separate checks.",
+    "A PASS in inventory mode verifies stored composition/metadata only, never scientific quality.",
+    "Daily files without a completion marker are UNVERIFIED_PUBLICATION, not a committed daily triplet.",
+    "R2 data was never modified by this program."
+  ]
+}

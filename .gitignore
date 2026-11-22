@@ -1,8 +1,25 @@
-.env 
+# Credentials and local Python environments
+.env
+.env.*
+!.env.example
 .venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Desktop files, editor backups and runtime state
+.DS_Store
+*.bak
+*.log
+/data/platform/
+/staging/
+/full_rebuild_report/
+/gold_report/
+/bronze_full_report/
+/r2_audit_report/
+/cmr_missing_report/
+
+# Reproducible large assets; manifests and metadata remain in Git
 /data/bronze/viirs/
 /data/silver/viirs/
-
-# 국토위성(NGII) 원본 zip (용량 큼, docs/tickets/NGII-01 절차로 재다운로드. 메타데이터·sha256은 tables/ngii/ 에 커밋)
 /data/ngii/
-__pycache__/
