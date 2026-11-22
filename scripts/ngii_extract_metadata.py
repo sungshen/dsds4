@@ -2,12 +2,14 @@
 
 입력: tables/ngii/asset_manifest.csv (ngii_ingest_downloads.py 출력)
 출력
-- tables/ngii/metadata/ard_metadata_2025.csv : 영상 1개 = 1행 (도엽, 촬영일·UTC 시각, 궤도, 좌표 범위, 센서·태양 각도 등)
-- tables/ngii/metadata/ard_aux_xml_2025.tar.gz : 원본 _Aux.xml 전체 (zip에서 꺼낸 그대로, 이름 유지)
+- tables/ngii/metadata/ard_metadata_<year>.csv : 영상 1개 = 1행 (도엽, 촬영일·UTC 시각, 궤도, 좌표 범위, 센서·태양 각도 등)
+- tables/ngii/metadata/ard_aux_xml_<year>.tar.gz : 원본 _Aux.xml 전체 (zip에서 꺼낸 그대로, 이름 유지)
 
+사용: python -I scripts/ngii_extract_metadata.py [year]  (기본 2025, manifest에서 data/ngii/<year>/ 경로만 고른다)
 zip은 풀지 않고 메모리에서 XML만 읽는다. 원본 zip은 data/ 아래에 그대로 둔다(git 제외).
 """
 import csv
+import sys
 import io
 import tarfile
 import xml.etree.ElementTree as ET
@@ -17,7 +19,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "tables" / "ngii" / "asset_manifest.csv"
 OUT_DIR = ROOT / "tables" / "ngii" / "metadata"
-EVENT_PERIOD = {"E4": ("20250716", "20250720"), "E5": ("20250803", "20250803"),
+EVENT_PERIOD = {"E1": ("20240708", "20240710"), "E3": ("20240920", "20240921"),
+                "E4": ("20250716", "20250720"), "E5": ("20250803", "20250803"),
                 "E6": ("20250813", "20250813"), "E7": ("20250907", "20250907")}
 
 
@@ -26,11 +29,12 @@ def t(node, path):
     return (el.text or "").strip() if el is not None and el.text else ""
 
 
-def main() -> None:
-    rows = list(csv.DictReader(MANIFEST.open(encoding="utf-8")))
+def main(year: str = "2025") -> None:
+    rows = [r for r in csv.DictReader(MANIFEST.open(encoding="utf-8"))
+            if r["stored_path"].startswith(f"data/ngii/{year}/")]
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     out = []
-    tar_path = OUT_DIR / "ard_aux_xml_2025.tar.gz"
+    tar_path = OUT_DIR / f"ard_aux_xml_{year}.tar.gz"
     with tarfile.open(tar_path, "w:gz") as tar:
         for r in rows:
             zp = ROOT / r["stored_path"]
@@ -66,7 +70,7 @@ def main() -> None:
                 "atmospheric_correction": t(root, ".//AtmosphericCorrectionAlgorithm"),
                 "aux_xml": name, "zip_sha256": r["sha256"],
             })
-    csv_path = OUT_DIR / "ard_metadata_2025.csv"
+    csv_path = OUT_DIR / f"ard_metadata_{year}.csv"
     with csv_path.open("w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=list(out[0]))
         w.writeheader()
@@ -75,4 +79,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1] if len(sys.argv) > 1 else "2025")
