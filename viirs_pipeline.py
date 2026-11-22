@@ -168,6 +168,53 @@ def boundaries(path, column):
     return frame.dissolve("dong_code").sort_index()
 
 
+def limit_chunk_cache(*variables):
+    """Bound each NetCDF/HDF5 variable cache for the 750 MiB worker."""
+    for variable in variables:
+        variable.set_var_chunk_cache(size=1024 * 1024, nelems=1009, preemption=0.5)
+
+
+def source_metadata(image_path, geo_path, key):
+    """Record source declarations without claiming uniform projected resolution."""
+    from netCDF4 import Dataset
+
+    result = {"swath_id": key, "native_grid": "geolocated swath pixel centers",
+              "resampling": "none", "cloud_qc_status": "unverified", "products": {}}
+    for product, path in zip(PRODUCTS, (Path(image_path), Path(geo_path))):
+        match = FILENAME.fullmatch(path.name)
+        if match is None or match[1] != product or match[2] != key:
+            raise ValueError(f"Source product/swath filename mismatch: {path.name}")
+        with Dataset(path) as source:
+            attrs = {name: str(source.getncattr(name)) for name in (
+                "product_name", "time_coverage_start", "time_coverage_end",
+                "processing_level", "platform", "instrument", "spatialResolution")
+                if name in source.ncattrs()}
+            if "time_coverage_start" in attrs:
+                actual = datetime.fromisoformat(attrs["time_coverage_start"].replace("Z", "+00:00"))
+                if actual.tzinfo is None or abs((actual - timestamp(key)).total_seconds()) >= 60:
+                    raise ValueError(f"Source acquisition time differs from the named swath: {path.name}")
+            wanted = (("observation_data", "I05"), ("observation_data", "I05_brightness_temperature_lut"),
+                      ("observation_data", "I05_quality_flags")) if product == PRODUCTS[0] else (
+                      ("geolocation_data", "longitude"), ("geolocation_data", "latitude"),
+                      ("scan_line_attributes", "scan_start_time"))
+            variables = {}
+            for group, name in wanted:
+                if group not in source.groups or name not in source.groups[group].variables:
+                    if name == "scan_start_time":  # legacy crops do not require this timing product
+                        continue
+                    raise ValueError(f"Source lacks {group}/{name}: {path.name}")
+                var = source.groups[group].variables[name]
+                variables[f"{group}/{name}"] = {
+                    "shape": list(var.shape), "dtype": str(var.dtype),
+                    **{a: str(var.getncattr(a)) for a in ("units", "long_name", "scale_factor", "add_offset", "_FillValue", "flag_masks", "flag_meanings") if a in var.ncattrs()},
+                }
+                if name == "I05_brightness_temperature_lut" and "units" in var.ncattrs():
+                    if str(var.units).lower() not in ("k", "kelvin", "kelvins"):
+                        raise ValueError("I05 brightness-temperature lookup is not declared in Kelvin")
+            result["products"][product] = {"filename": path.name, "attributes": attrs, "variables": variables}
+    return result
+
+
 def extract(image_path, geo_path, dongs, writer):
     import geopandas as gpd
     import numpy as np
@@ -186,8 +233,9 @@ def extract(image_path, geo_path, dongs, writer):
         lat = geo["geolocation_data/latitude"]
         if band.shape != lon.shape or lon.shape != lat.shape or quality.shape != band.shape:
             raise ValueError(f"Inconsistent swath dimensions: {image_path.name}")
-        for first in range(0, band.shape[0], 256):
-            rows = slice(first, first + 256)
+        limit_chunk_cache(band, quality, lon, lat)
+        for first in range(0, band.shape[0], 16):
+            rows = slice(first, first + 16)
             x = lon[rows].astype("float64").filled(np.nan)
             y = lat[rows].astype("float64").filled(np.nan)
             row, col = np.nonzero((left <= x) & (x <= right) & (bottom <= y) & (y <= top))
@@ -219,6 +267,7 @@ def write_crop(destination, key, pair, dongs, boundary, boundary_version):
     import pyarrow.parquet as pq
 
     observed = timestamp(key)
+    descriptions = source_metadata(pair[PRODUCTS[0]], pair[PRODUCTS[1]], key)
     schema = pa.schema([
         ("dong_code", pa.string()), ("row", pa.int32()), ("column", pa.int32()),
         ("longitude", pa.float64()), ("latitude", pa.float64()),
@@ -228,6 +277,9 @@ def write_crop(destination, key, pair, dongs, boundary, boundary_version):
         "boundary": str(boundary),
         "boundary_version": boundary_version,
         "sources": json.dumps([pair[product].name for product in PRODUCTS]),
+        "source_metadata": json.dumps(descriptions, sort_keys=True),
+        "temperature_units": "K", "coordinate_crs": "EPSG:4326",
+        "sampling": "native I5 pixel centers; no resampling", "cloud_qc_status": "unverified",
     })
     if destination.exists() and pq.read_schema(destination).equals(schema, check_metadata=True):
         return

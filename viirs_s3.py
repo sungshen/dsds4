@@ -65,6 +65,9 @@ def object_metadata(client, bucket, key, expected, *, r2=False):
 
 
 def put_file(client, bucket, key, path, metadata, content_type, *, r2=False):
+    size = path.stat().st_size
+    if not 0 < size <= 5 * 1024**3:
+        raise ValueError("Conditional single-PUT objects must be nonempty and at most 5 GiB")
     sha256, content_md5 = checksum(path, with_md5=r2)
     options = {"ChecksumSHA256": sha256}
     stored_metadata = metadata
@@ -75,7 +78,6 @@ def put_file(client, bucket, key, path, metadata, content_type, *, r2=False):
             "StorageClass": "STANDARD",
         }
         stored_metadata = {**metadata, "sha256": sha256}
-    size = path.stat().st_size
     try:
         with path.open("rb") as stream:
             client.put_object(
@@ -83,7 +85,7 @@ def put_file(client, bucket, key, path, metadata, content_type, *, r2=False):
                 IfNoneMatch="*", Metadata=stored_metadata, ContentType=content_type, **options,
             )
     except ClientError as error:
-        if error.response["ResponseMetadata"]["HTTPStatusCode"] != 412:
+        if error.response.get("ResponseMetadata", {}).get("HTTPStatusCode") not in (409, 412):
             raise
     obj = object_metadata(client, bucket, key, metadata, r2=r2)
     if (obj is None or obj["ContentLength"] != size or obj["verified_sha256"] != sha256
@@ -107,7 +109,7 @@ def crop_quality(path, total_dongs):
     import numpy as np
     import pyarrow.parquet as pq
 
-    rows = missing = bowtie = 0
+    rows = missing = bowtie = flagged = valid = 0
     valid_dongs = set()
     columns = ["dong_code", "i05_brightness_temperature_k", "i05_quality_flags"]
     with pq.ParquetFile(path) as parquet:
@@ -117,6 +119,8 @@ def crop_quality(path, total_dongs):
             flags = batch.column(2).to_numpy(zero_copy_only=False)
             rows += batch.num_rows
             missing += int(absent.sum())
+            flagged += int((flags != 0).sum())
+            valid += int((~absent & (flags == 0)).sum())
             bowtie += int((absent & ((flags & 256) != 0)).sum())
             valid_dongs.update(batch.column(0).filter(~absent).unique().to_pylist())
     return {
@@ -126,6 +130,14 @@ def crop_quality(path, total_dongs):
         "missing_other": missing - bowtie,
         "dong_count": total_dongs,
         "dongs_without_valid_temperature": total_dongs - len(valid_dongs),
+        "finite_temperature_count": rows - missing,
+        "flagged_count": flagged,
+        "valid_count": valid,
+        "valid_fraction": valid / rows if rows else None,
+        "valid_policy": "finite I5 brightness temperature and i05_quality_flags == 0",
+        "valid_fraction_denominator": "all Silver pixels in this observation",
+        "dongs_without_valid_temperature_policy": "no finite I5 brightness temperature; flags not filtered",
+        "cloud_qc_status": "unverified",
     }
 
 

@@ -1,5 +1,6 @@
-requests>=2.32
-netCDF4>=1.7
-numpy>=1.26
-geopandas>=1.0
-pyarrow>=17
+requests>=2.32,<3
+netCDF4>=1.7,<2
+numpy>=1.26,<3
+geopandas>=1.0,<2
+pyarrow>=18,<24
+python-dotenv>=1,<2
