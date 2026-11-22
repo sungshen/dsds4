@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>DSDS · 관측 데이터</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="/" aria-label="DSDS 홈"><span class="brand-mark">D</span><span>DSDS<small>관측 데이터 플랫폼</small></span></a>
+      <nav aria-label="메인 메뉴">
+        <button class="nav-item active" data-view="explore" aria-current="page"><span class="nav-icon">▦</span>데이터 탐색</button>
+        <button class="nav-item" data-view="gold"><span class="nav-icon">◈</span>Gold 데이터</button>
+        <button class="nav-item" data-view="connections"><span class="nav-icon">⌁</span>연결 상태</button>
+      </nav>
+      <div class="sidebar-footer"><span class="footer-label">DSDS PROJECT</span><span>위성 관측 · 행정동 분석</span></div>
+    </aside>
+    <main>
+      <header class="topbar"><span class="breadcrumb">워크스페이스 <span>/</span> <strong id="breadcrumb">데이터 탐색</strong></span><button id="refresh-status" class="text-button"><span id="connection-summary" class="connection-summary">연결 확인 중</span><span aria-hidden="true">↻</span></button></header>
+      <div class="content">
+        <div id="notice" class="notice" role="status" hidden></div>
+        <section id="view-explore" class="view">
+          <div class="page-heading"><div><p class="eyebrow">OBSERVATIONS</p><h1>데이터 탐색</h1><p class="subtitle">기간과 행정동으로 관측을 찾고 영상과 품질을 확인하세요.</p></div><span class="period-label">2024 — 2025</span></div>
+          <form id="search-form" class="filter-panel">
+            <div class="filter-row">
+              <label>데이터 원천<select name="source" id="source"><option value="local">로컬 · 천리안 IR112</option><option value="r2">Cloudflare R2 · VIIRS</option></select></label>
+              <label>처리 단계<select name="stage" id="stage"><option value="silver">Silver</option><option value="gold">Gold</option></select></label>
+              <label>시작일<input type="date" name="start" value="2024-01-01" required></label>
+              <label>종료일<input type="date" name="end" value="2025-12-31" required></label>
+            </div>
+            <div class="filter-row second-row"><label>행정동 코드<input name="dong" id="dong" placeholder="전체 행정동" autocomplete="off" inputmode="numeric"></label><label class="wide">제품명 검색<input name="q" placeholder="관측 ID 또는 파일명" autocomplete="off"></label><button class="primary-button" type="submit" id="search-button">관측 검색</button></div>
+          </form>
+          <div class="explorer-grid">
+            <section class="panel results-panel" aria-label="관측 목록"><div class="panel-heading"><h2>관측 목록 <span id="result-count" class="count">0</span></h2><span class="muted" id="results-caption">일자별 파일 · 상세에서 장면 확인</span></div><div id="results" class="results" aria-live="polite"><div class="empty"><span class="empty-icon">▦</span><strong>관측을 불러오는 중입니다</strong></div></div><div class="panel-footer" id="pagination" hidden><button id="load-more" class="secondary-button">더 불러오기</button></div></section>
+            <section class="panel detail-panel" aria-label="관측 상세"><div class="panel-heading"><h2>관측 상세</h2><span id="detail-label" class="muted"></span></div><div id="detail"><div class="empty"><span class="empty-icon">◫</span><strong>관측을 선택하세요</strong><p>영상, 위치와 품질 정보가 표시됩니다.</p></div></div></section>
+          </div>
+        </section>
+        <section id="view-gold" class="view" hidden>
+          <div class="page-heading"><div><p class="eyebrow">GOLD DATA</p><h1>행정동별 관측 통계</h1><p class="subtitle">R2에 게시된 행정동 × 관측 장면별 I5 밝기온도 통계를 조회합니다.</p></div></div>
+          <form id="gold-form" class="filter-panel compact-filters"><label>시작일<input name="start" type="date" value="2024-01-01"></label><label>종료일<input name="end" type="date" value="2025-12-31"></label><label>행정동 코드<input name="dong" placeholder="전체 행정동" inputmode="numeric"></label><button class="primary-button" type="submit">Gold 조회</button></form>
+          <section class="panel"><div class="panel-heading"><h2>집계 데이터 <span id="gold-count" class="count">0</span></h2><span class="muted">R2 원본 · 밝기온도 단위 K</span></div><div id="gold-results"></div><div class="panel-footer" id="gold-pagination" hidden><button class="secondary-button" id="gold-more">더 불러오기</button></div></section>
+        </section>
+        <section id="view-connections" class="view" hidden>
+          <div class="page-heading"><div><p class="eyebrow">CONNECTIONS</p><h1>데이터 연결</h1><p class="subtitle">R2 저장소와 Hetzner 서버의 현재 연결 상태입니다.</p></div><button class="secondary-button" id="connections-refresh">상태 새로고침</button></div>
+          <div id="connection-cards" class="connection-cards"></div>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
