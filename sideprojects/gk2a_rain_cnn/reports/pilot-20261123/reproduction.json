@@ -1,0 +1,9 @@
+{
+  "model_weights_identical": true,
+  "prediction_and_metric_values_identical": true,
+  "input_samples_sha256_identical": true,
+  "checkpoint_bytes_identical": true,
+  "reproduced_from_different_working_directory": true,
+  "synthetic": false,
+  "pilot_run": true
+}

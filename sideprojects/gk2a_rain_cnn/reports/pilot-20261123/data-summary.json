@@ -1,0 +1,58 @@
+{
+  "availability_mode": "retrospective_observation_time",
+  "counts": {
+    "candidate_observations": 81,
+    "missing_four_frame_history": 9,
+    "missing_or_invalid_target_rain": 3,
+    "samples": 69
+  },
+  "frame_offsets_hours": [
+    -3,
+    -2,
+    -1,
+    0
+  ],
+  "note": "No samples are fabricated. Image observation time is not verified operational delivery time.",
+  "numeric_feature_policy": "blank unless explicit available_at_kst <= issue_time",
+  "patch_manifest": "data/prepared/patch_manifest.csv",
+  "patch_manifest_sha256": "a713a996cddf31dd57827753b4497a55c75fa4fdb2b231dd3e215af60c1f6a95",
+  "positive_counts": {
+    "test": 1,
+    "train": 2,
+    "val": 1
+  },
+  "processing_version": "gk2a-seoul-station-patches-v1",
+  "purge_policy": "history_start >= split_start AND target_end < split_stop",
+  "sample_count": 69,
+  "split_counts": {
+    "test": 23,
+    "train": 23,
+    "val": 23
+  },
+  "splits": [
+    {
+      "name": "train",
+      "start_kst": "2024-01-01T00:00:00+09:00",
+      "stop_kst_exclusive": "2024-07-20T00:00:00+09:00"
+    },
+    {
+      "name": "val",
+      "start_kst": "2024-07-20T00:00:00+09:00",
+      "stop_kst_exclusive": "2025-01-01T00:00:00+09:00"
+    },
+    {
+      "name": "test",
+      "start_kst": "2025-01-01T00:00:00+09:00",
+      "stop_kst_exclusive": "2026-01-01T00:00:00+09:00"
+    }
+  ],
+  "station_csv": "data/collected/station.csv",
+  "station_csv_sha256": "e9055f0536b4b155fae4a8293e79934bac58dc25277d9f6b86fbed9246bc8740",
+  "station_data_state": "available",
+  "station_id": "108",
+  "station_latitude": 37.57142,
+  "station_longitude": 126.9658,
+  "target_window": "(issue_time, issue_time + 1h]",
+  "threshold_mm_per_hour": 30,
+  "sampling_design": "event-selected engineering pilot; no representative rain-skill inference"
+}

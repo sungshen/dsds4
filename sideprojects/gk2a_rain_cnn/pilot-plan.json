@@ -1,0 +1,14 @@
+{
+  "task": "Seoul station 108 next-hour rainfall >= 30 mm",
+  "station": {"id":"108","latitude":37.57142,"longitude":126.9658},
+  "history_hours": [-3,-2,-1,0],
+  "patch_size":64,
+  "threshold_mm":30,
+  "rain_label_days_kst":["2024-07-17","2024-07-23","2025-08-13"],
+  "split_config":"pilot-splits.json",
+  "sampling_design":"event-selected engineering pilot; days selected after inspecting rain availability and class presence",
+  "skill_evaluation_valid":false,
+  "image_units":"native packed DN; no Kelvin conversion",
+  "numeric_input_policy":"disabled unless publication availability is verified; observed rainfall provides the target",
+  "operational_delivery_validation":false
+}

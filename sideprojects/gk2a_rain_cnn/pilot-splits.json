@@ -1,0 +1,5 @@
+[
+  {"name":"train","start_kst":"2024-01-01T00:00:00+09:00","stop_kst_exclusive":"2024-07-20T00:00:00+09:00"},
+  {"name":"val","start_kst":"2024-07-20T00:00:00+09:00","stop_kst_exclusive":"2025-01-01T00:00:00+09:00"},
+  {"name":"test","start_kst":"2025-01-01T00:00:00+09:00","stop_kst_exclusive":"2026-01-01T00:00:00+09:00"}
+]

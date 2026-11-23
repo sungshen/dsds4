@@ -1,0 +1,50 @@
+{
+  "model_version": "gk2a-ir112-cnn-next1h-v1",
+  "task": "station108_next1h_rain_ge_threshold",
+  "threshold_mm": 30.0,
+  "lead_time_hours": 1,
+  "history_hours": 4,
+  "image_units": "packed DN divided by 8191, with four validity-mask channels",
+  "model_config": {
+    "use_numeric": false,
+    "numeric_size": 14
+  },
+  "samples_csv": "data/prepared/samples.csv",
+  "samples_sha256": "fcb2f5f1e689f10fa32db0a5342757c8260c077241efbf2b71c51e07e6fa673c",
+  "numeric_preprocessor": null,
+  "seed": 42,
+  "device": "cpu",
+  "epochs": 20,
+  "batch_size": 16,
+  "learning_rate": 0.001,
+  "pos_weight_from_train": 10.5,
+  "train_prevalence": 0.08695652173913043,
+  "time_policy": "retrospective_observation_time; not operational delivery validation",
+  "numeric_policy": "disabled; publication availability unknown",
+  "split_counts": {
+    "train": {
+      "samples": 23,
+      "positives": 2,
+      "first_issue": "2024-07-16T14:00:00+00:00",
+      "last_issue": "2024-07-17T13:00:00+00:00"
+    },
+    "val": {
+      "samples": 23,
+      "positives": 1,
+      "first_issue": "2024-07-22T14:00:00+00:00",
+      "last_issue": "2024-07-23T13:00:00+00:00"
+    },
+    "test": {
+      "samples": 23,
+      "positives": 1,
+      "first_issue": "2025-08-12T14:00:00+00:00",
+      "last_issue": "2025-08-13T13:00:00+00:00"
+    }
+  },
+  "source_code_sha256": "e5b3de0e61d3d8845fbd3d25ff31a606473da6d00d697fbaac91e732a9864337",
+  "synthetic": false,
+  "torch_version": "2.15.0",
+  "numpy_version": "2.4.6",
+  "pilot_run": true,
+  "evaluation_scope": "selected event windows; engineering verification, not representative forecast skill"
+}

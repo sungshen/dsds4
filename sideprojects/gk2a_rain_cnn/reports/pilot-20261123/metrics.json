@@ -1,0 +1,89 @@
+{
+  "synthetic": false,
+  "pilot_run": true,
+  "evaluation": "selected event windows; engineering verification, not representative forecast skill",
+  "best_epoch": 2,
+  "selection_metric": "validation average_precision",
+  "decision_threshold_source": "validation F1 only",
+  "decision_threshold": 0.4899187386035919,
+  "validation": {
+    "sample_count": 23,
+    "positive_count": 1,
+    "negative_count": 22,
+    "prevalence": 0.043478260869565216,
+    "threshold": 0.4899187386035919,
+    "average_precision": 0.09090909090909091,
+    "precision": 0.09090909090909091,
+    "recall": 1.0,
+    "f1": 0.16666666666666669,
+    "brier": 0.2413602758600229,
+    "confusion": {
+      "tp": 1,
+      "fp": 10,
+      "fn": 0,
+      "tn": 12
+    },
+    "single_class": false
+  },
+  "test": {
+    "sample_count": 23,
+    "positive_count": 1,
+    "negative_count": 22,
+    "prevalence": 0.043478260869565216,
+    "threshold": 0.4899187386035919,
+    "average_precision": 0.0625,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "brier": 0.24057758915497796,
+    "confusion": {
+      "tp": 0,
+      "fp": 6,
+      "fn": 1,
+      "tn": 16
+    },
+    "single_class": false
+  },
+  "baselines": {
+    "no_rain": {
+      "sample_count": 23,
+      "positive_count": 1,
+      "negative_count": 22,
+      "prevalence": 0.043478260869565216,
+      "threshold": 0.5,
+      "average_precision": 0.043478260869565216,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "brier": 0.043478260869565216,
+      "confusion": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "tn": 22
+      },
+      "single_class": false
+    },
+    "train_prevalence": {
+      "sample_count": 23,
+      "positive_count": 1,
+      "negative_count": 22,
+      "prevalence": 0.043478260869565216,
+      "threshold": 0.5,
+      "average_precision": 0.043478260869565216,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "brier": 0.04347826086956521,
+      "confusion": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "tn": 22
+      },
+      "single_class": false
+    }
+  },
+  "samples_sha256": "fcb2f5f1e689f10fa32db0a5342757c8260c077241efbf2b71c51e07e6fa673c",
+  "checkpoint_sha256": "6ba105c55e96d5d0da771d443e04026399896e83bf863725e751695f76671e5a"
+}

@@ -1,0 +1,462 @@
+[
+  {
+    "epoch": 1,
+    "train_loss": 1.2743010158124177,
+    "validation": {
+      "sample_count": 23,
+      "positive_count": 1,
+      "negative_count": 22,
+      "prevalence": 0.043478260869565216,
+      "threshold": 0.5,
+      "average_precision": 0.07692307692307693,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "brier": 0.24757918032877022,
+      "confusion": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "tn": 22
+      },
+      "single_class": false
+    }
+  },
+  {
+    "epoch": 2,
+    "train_loss": 1.2804647113965906,
+    "validation": {
+      "sample_count": 23,
+      "positive_count": 1,
+      "negative_count": 22,
+      "prevalence": 0.043478260869565216,
+      "threshold": 0.5,
+      "average_precision": 0.09090909090909091,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "brier": 0.2413602758600229,
+      "confusion": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "tn": 22
+      },
+      "single_class": false
+    }
+  },
+  {
+    "epoch": 3,
+    "train_loss": 1.2832100469133128,
+    "validation": {
+      "sample_count": 23,
+      "positive_count": 1,
+      "negative_count": 22,
+      "prevalence": 0.043478260869565216,
+      "threshold": 0.5,
+      "average_precision": 0.09090909090909091,
+      "precision": 0.043478260869565216,
+      "recall": 1.0,
+      "f1": 0.08333333333333333,
+      "brier": 0.25592347015811706,
+      "confusion": {
+        "tp": 1,
+        "fp": 22,
+        "fn": 0,
+        "tn": 0
+      },
+      "single_class": false
+    }
+  },
+  {
+    "epoch": 4,
+    "train_loss": 1.2186042770095493,
+    "validation": {
+      "sample_count": 23,
+      "positive_count": 1,
+      "negative_count": 22,
+      "prevalence": 0.043478260869565216,
+      "threshold": 0.5,
+      "average_precision": 0.09090909090909091,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "brier": 0.2482867054986601,
+      "confusion": {
+        "tp": 0,
+        "fp": 5,
+        "fn": 1,
+        "tn": 17
+      },
+      "single_class": false
+    }
+  },
+  {
+    "epoch": 5,
+    "train_loss": 1.2463457688041355,
+    "validation": {
+      "sample_count": 23,
+      "positive_count": 1,
+      "negative_count": 22,
+      "prevalence": 0.043478260869565216,
+      "threshold": 0.5,
+      "average_precision": 0.09090909090909091,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "brier": 0.2361887974752379,
+      "confusion": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "tn": 22
+      },
+      "single_class": false
+    }
+  },
+  {
+    "epoch": 6,
+    "train_loss": 1.302179004835046,
+    "validation": {
+      "sample_count": 23,
+      "positive_count": 1,
+      "negative_count": 22,
+      "prevalence": 0.043478260869565216,
+      "threshold": 0.5,
+      "average_precision": 0.08333333333333333,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "brier": 0.23512153066844438,
+      "confusion": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "tn": 22
+      },
+      "single_class": false
+    }
+  },
+  {
+    "epoch": 7,
+    "train_loss": 1.249067228773366,
+    "validation": {
+      "sample_count": 23,
+      "positive_count": 1,
+      "negative_count": 22,
+      "prevalence": 0.043478260869565216,
+      "threshold": 0.5,
+      "average_precision": 0.08333333333333333,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "brier": 0.2300971787117309,
+      "confusion": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "tn": 22
+      },
+      "single_class": false
+    }
+  },
+  {
+    "epoch": 8,
+    "train_loss": 1.2656769882077756,
+    "validation": {
+      "sample_count": 23,
+      "positive_count": 1,
+      "negative_count": 22,
+      "prevalence": 0.043478260869565216,
+      "threshold": 0.5,
+      "average_precision": 0.07692307692307693,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "brier": 0.22394874012065785,
+      "confusion": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "tn": 22
+      },
+      "single_class": false
+    }
+  },
+  {
+    "epoch": 9,
+    "train_loss": 1.2440117753070334,
+    "validation": {
+      "sample_count": 23,
+      "positive_count": 1,
+      "negative_count": 22,
+      "prevalence": 0.043478260869565216,
+      "threshold": 0.5,
+      "average_precision": 0.07692307692307693,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "brier": 0.21655517252850406,
+      "confusion": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "tn": 22
+      },
+      "single_class": false
+    }
+  },
+  {
+    "epoch": 10,
+    "train_loss": 1.2079350896503613,
+    "validation": {
+      "sample_count": 23,
+      "positive_count": 1,
+      "negative_count": 22,
+      "prevalence": 0.043478260869565216,
+      "threshold": 0.5,
+      "average_precision": 0.07692307692307693,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "brier": 0.21085762938458935,
+      "confusion": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "tn": 22
+      },
+      "single_class": false
+    }
+  },
+  {
+    "epoch": 11,
+    "train_loss": 1.2692684427551602,
+    "validation": {
+      "sample_count": 23,
+      "positive_count": 1,
+      "negative_count": 22,
+      "prevalence": 0.043478260869565216,
+      "threshold": 0.5,
+      "average_precision": 0.07692307692307693,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "brier": 0.21413729529664266,
+      "confusion": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "tn": 22
+      },
+      "single_class": false
+    }
+  },
+  {
+    "epoch": 12,
+    "train_loss": 1.2454790343409,
+    "validation": {
+      "sample_count": 23,
+      "positive_count": 1,
+      "negative_count": 22,
+      "prevalence": 0.043478260869565216,
+      "threshold": 0.5,
+      "average_precision": 0.07692307692307693,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "brier": 0.22279535777232312,
+      "confusion": {
+        "tp": 0,
+        "fp": 5,
+        "fn": 1,
+        "tn": 17
+      },
+      "single_class": false
+    }
+  },
+  {
+    "epoch": 13,
+    "train_loss": 1.2188794431479082,
+    "validation": {
+      "sample_count": 23,
+      "positive_count": 1,
+      "negative_count": 22,
+      "prevalence": 0.043478260869565216,
+      "threshold": 0.5,
+      "average_precision": 0.07692307692307693,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "brier": 0.2294271071162333,
+      "confusion": {
+        "tp": 0,
+        "fp": 7,
+        "fn": 1,
+        "tn": 15
+      },
+      "single_class": false
+    }
+  },
+  {
+    "epoch": 14,
+    "train_loss": 1.2284396834995435,
+    "validation": {
+      "sample_count": 23,
+      "positive_count": 1,
+      "negative_count": 22,
+      "prevalence": 0.043478260869565216,
+      "threshold": 0.5,
+      "average_precision": 0.06666666666666667,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "brier": 0.22157033261063805,
+      "confusion": {
+        "tp": 0,
+        "fp": 2,
+        "fn": 1,
+        "tn": 20
+      },
+      "single_class": false
+    }
+  },
+  {
+    "epoch": 15,
+    "train_loss": 1.1925008763437686,
+    "validation": {
+      "sample_count": 23,
+      "positive_count": 1,
+      "negative_count": 22,
+      "prevalence": 0.043478260869565216,
+      "threshold": 0.5,
+      "average_precision": 0.06666666666666667,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "brier": 0.23513481102300057,
+      "confusion": {
+        "tp": 0,
+        "fp": 9,
+        "fn": 1,
+        "tn": 13
+      },
+      "single_class": false
+    }
+  },
+  {
+    "epoch": 16,
+    "train_loss": 1.2088991118514019,
+    "validation": {
+      "sample_count": 23,
+      "positive_count": 1,
+      "negative_count": 22,
+      "prevalence": 0.043478260869565216,
+      "threshold": 0.5,
+      "average_precision": 0.06666666666666667,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "brier": 0.24826942960840703,
+      "confusion": {
+        "tp": 0,
+        "fp": 10,
+        "fn": 1,
+        "tn": 12
+      },
+      "single_class": false
+    }
+  },
+  {
+    "epoch": 17,
+    "train_loss": 1.2100943637930828,
+    "validation": {
+      "sample_count": 23,
+      "positive_count": 1,
+      "negative_count": 22,
+      "prevalence": 0.043478260869565216,
+      "threshold": 0.5,
+      "average_precision": 0.06666666666666667,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "brier": 0.24282123387065188,
+      "confusion": {
+        "tp": 0,
+        "fp": 10,
+        "fn": 1,
+        "tn": 12
+      },
+      "single_class": false
+    }
+  },
+  {
+    "epoch": 18,
+    "train_loss": 1.1586384928744773,
+    "validation": {
+      "sample_count": 23,
+      "positive_count": 1,
+      "negative_count": 22,
+      "prevalence": 0.043478260869565216,
+      "threshold": 0.5,
+      "average_precision": 0.07142857142857142,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "brier": 0.229766802187193,
+      "confusion": {
+        "tp": 0,
+        "fp": 8,
+        "fn": 1,
+        "tn": 14
+      },
+      "single_class": false
+    }
+  },
+  {
+    "epoch": 19,
+    "train_loss": 1.1324632271476414,
+    "validation": {
+      "sample_count": 23,
+      "positive_count": 1,
+      "negative_count": 22,
+      "prevalence": 0.043478260869565216,
+      "threshold": 0.5,
+      "average_precision": 0.07142857142857142,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "brier": 0.2199618622929107,
+      "confusion": {
+        "tp": 0,
+        "fp": 7,
+        "fn": 1,
+        "tn": 15
+      },
+      "single_class": false
+    }
+  },
+  {
+    "epoch": 20,
+    "train_loss": 1.1276505200759224,
+    "validation": {
+      "sample_count": 23,
+      "positive_count": 1,
+      "negative_count": 22,
+      "prevalence": 0.043478260869565216,
+      "threshold": 0.5,
+      "average_precision": 0.07142857142857142,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "brier": 0.22098456482414705,
+      "confusion": {
+        "tp": 0,
+        "fp": 8,
+        "fn": 1,
+        "tn": 14
+      },
+      "single_class": false
+    }
+  }
+]
