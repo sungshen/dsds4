@@ -120,8 +120,9 @@ def read_objects(path, prefix):
             parts = key_parts(key)
             if parts[:len(prefix_parts)] != prefix_parts or len(parts) < len(prefix_parts) + 2:
                 raise ValueError("Object inventory contains a key outside the observation prefix")
-            tier = parts[len(prefix_parts)]
-            if tier not in TIERS or (row.get("tier") and row["tier"] != tier):
+            storage_tier = parts[len(prefix_parts)]
+            tier = "publication" if storage_tier == "quality" and parts[-1] == "completion.json" else storage_tier
+            if storage_tier not in TIERS - {"publication"} or (row.get("tier") and row["tier"] != tier):
                 raise ValueError("Object inventory contains an unsupported tier")
             if key in seen:
                 raise ValueError("Duplicate object key in inventory")

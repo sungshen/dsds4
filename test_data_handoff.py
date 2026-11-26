@@ -127,6 +127,16 @@ class ShareSafetyTest(unittest.TestCase):
         with contextlib.redirect_stdout(io.StringIO()):
             builder.main([])
 
+    def test_completion_key_maps_to_publication_without_changing_storage_path(self):
+        key = "viirs-daily/quality/sgis-2024-2q/2024/01/01/completion.json"
+        path = self.inventory([{"object_key": key, "tier": "publication", "size_bytes": 20}])
+        rows = handoff.read_objects(path, "viirs-daily")
+        self.assertEqual(rows[0]["tier"], "publication")
+        self.assertEqual(rows[0]["object_key"], key)
+        path = self.inventory([{"object_key": key, "tier": "gold", "size_bytes": 20}])
+        with self.assertRaisesRegex(ValueError, "tier"):
+            handoff.read_objects(path, "viirs-daily")
+
     def test_main_rejects_missing_failed_or_stale_reports_before_api_operations(self):
         inventory = self.inventory([{"object_key": KEY, "tier": "gold", "size_bytes": 20}])
         for case in ("missing", "failed", "stale_gold_binding", "wrong_totals", "stale_common_status", "stale_checksums"):
