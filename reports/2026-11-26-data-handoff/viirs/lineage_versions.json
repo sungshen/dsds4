@@ -1,0 +1,26 @@
+[
+  {
+    "pipeline_version": "all-scenes-scan-time-v2.1",
+    "processing_code_sha256": "5eaa108385f35ece35e2fcfa6e96e4bfadd1007aa7df43e0e4161f46ceae5503",
+    "processing_code_hashes": {
+      "viirs_full_rebuild.py": "a0a257924e5cc7c4c491994980b9bee017b9f9774def38daa75953d893c05b83",
+      "viirs_pipeline.py": "61ab6f8bde2a24bb3c4510f40bd14346726cfa815bda7d517ec9d5c2b62ce2c9",
+      "viirs_s3.py": "a0d314701b5d7e052bc48c401ccfe4a06719dde9d181c51e5cc40dc0ed1495fa"
+    },
+    "boundary_version": "sgis-2024-2q",
+    "boundary_sha256": "b82ee15bbf3c5aad89b0747d548e35dec7e7af88662db8395263f2586d560840",
+    "date_count": 347
+  },
+  {
+    "pipeline_version": "all-scenes-scan-time-v2.1",
+    "processing_code_sha256": "5eaa108385f35ece35e2fcfa6e96e4bfadd1007aa7df43e0e4161f46ceae5503",
+    "processing_code_hashes": {
+      "viirs_full_rebuild.py": "a0a257924e5cc7c4c491994980b9bee017b9f9774def38daa75953d893c05b83",
+      "viirs_pipeline.py": "61ab6f8bde2a24bb3c4510f40bd14346726cfa815bda7d517ec9d5c2b62ce2c9",
+      "viirs_s3.py": "a0d314701b5d7e052bc48c401ccfe4a06719dde9d181c51e5cc40dc0ed1495fa"
+    },
+    "boundary_version": "sgis-2025-2q",
+    "boundary_sha256": "079770b340c14f034dd59e14da706fad826237f54b684ba40c13b4a77d036c34",
+    "date_count": 364
+  }
+]

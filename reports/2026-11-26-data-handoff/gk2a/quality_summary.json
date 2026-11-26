@@ -1,0 +1,136 @@
+{
+  "report_version": "gk2a-local-handoff-1.0",
+  "scope": "existing local main-project GK2A; no collection or raster regeneration",
+  "software_versions": {
+    "python": "3.11.17",
+    "numpy": "2.4.6",
+    "rasterio": "1.4.4",
+    "gdal": "3.10.3"
+  },
+  "status": "pass",
+  "errors": [],
+  "inventory_counts": {
+    "originals": 736,
+    "selected_daily_observations": 731,
+    "bronze_only_extras": 5,
+    "dongs": 425,
+    "silver_and_mask_files": 850,
+    "existing_dong_observation_qc_rows_checked": 310675,
+    "original_bytes_checked": 751067060,
+    "silver_and_mask_bytes_checked": 10061180
+  },
+  "checks": {
+    "checksum": "fresh full-byte SHA-256 of every inventoried original, image, and mask",
+    "source_raster": "every original opened; channel, datatype, bits, native-grid tags, time and manifest checked; full-scene pixels not rescanned",
+    "silver_content": "every image and mask band read; codes, outside fill, nodata, finite DN, upper bits, shape, CRS, transform and existing QC compared",
+    "existing_qc_path": "data/silver/gk2a/IR112_KO/observation_qc.csv.gz",
+    "no_rasters_rebuilt": true,
+    "inputs_sha256": {
+      "logs/gk2a_bronze_manifest.csv": "60a7d5ed21676a09665dea0a04ada193042557fe7505ca48d40bd0bc9485cf23",
+      "data/silver/gk2a/IR112_KO/observations.csv": "73432ba657e7fad0af88a8b93e8272f2fba85b12bebc62e0e35955bb8f9d6dc1",
+      "data/silver/gk2a/IR112_KO/crop_index.csv": "b79da659200cc13556a3a2978d7bee3b99ccb10083c0e028b77a8c6ce17295be",
+      "data/silver/gk2a/IR112_KO/processing.json": "25910247d23fa3eef3fc6c9230345debd03359eb0743ca1563a340c00a981d14",
+      "data/silver/gk2a/IR112_KO/observation_qc.csv.gz": "5e2e5b018e1aeea2dee560e6c16d1696421d178fa385ff45574bdf727353a3b3",
+      "config/hangjeongdong_서울특별시.geojson": "910270518645767503cd6f53feb29898c4404ebf33745b7e5dcedf1ce65fb70a",
+      "crop_gk2a_silver.py": "eceb6e2dfb253444c0de44a672e5fe0f5c86536c8bba64d723a82b26cfa8d5a5",
+      "register_crop.py": "ab1eaa8a718d9259a08c58efdf5d9680a461032252346e1c514d0d86125406c7",
+      "scripts/gk2a_delivery_inventory.py": "2977794964094814599b84a4a91185f78d1755365ceb38ab9e3ea7c5e1b57f04"
+    }
+  },
+  "temporal": {
+    "selected_kst_date_range": [
+      "2024-01-01",
+      "2025-12-31"
+    ],
+    "selected_date_gaps": [],
+    "actual_selected_utc_clock_counts": {
+      "00:00": 727,
+      "02:00": 1,
+      "23:58": 3
+    },
+    "selected_observations_away_from_0900_kst": [
+      {
+        "source_path": "data/bronze/gk2a/IR112_KO/gk2a_ami_le1b_ir112_ko_202405090200.nc",
+        "observation_time_utc": "2024-05-09T02:00:00+00:00",
+        "observation_time_kst": "2024-05-09T11:00:00+09:00",
+        "date_kst": "2024-05-09"
+      },
+      {
+        "source_path": "data/bronze/gk2a/IR112_KO/gk2a_ami_le1b_ir112_ko_202411062358.nc",
+        "observation_time_utc": "2024-11-06T23:58:00+00:00",
+        "observation_time_kst": "2024-11-07T08:58:00+09:00",
+        "date_kst": "2024-11-07"
+      },
+      {
+        "source_path": "data/bronze/gk2a/IR112_KO/gk2a_ami_le1b_ir112_ko_202505122358.nc",
+        "observation_time_utc": "2025-05-12T23:58:00+00:00",
+        "observation_time_kst": "2025-05-13T08:58:00+09:00",
+        "date_kst": "2025-05-13"
+      },
+      {
+        "source_path": "data/bronze/gk2a/IR112_KO/gk2a_ami_le1b_ir112_ko_202511052358.nc",
+        "observation_time_utc": "2025-11-05T23:58:00+00:00",
+        "observation_time_kst": "2025-11-06T08:58:00+09:00",
+        "date_kst": "2025-11-06"
+      }
+    ],
+    "sampling": "selected one-per-KST-day archive, with five additional originals; not a complete two-minute series",
+    "unknown_download_times": 736
+  },
+  "spatial": {
+    "pixel_size_m": 2000,
+    "resampling": "none",
+    "seoul_union_native_window_rows": 16,
+    "seoul_union_native_window_columns": 19,
+    "seoul_union_source_row": 465,
+    "seoul_union_source_col": 482,
+    "boundary_path": "config/hangjeongdong_서울특별시.geojson",
+    "boundary_sha256": "910270518645767503cd6f53feb29898c4404ebf33745b7e5dcedf1ce65fb70a",
+    "boundary_validity_period": null,
+    "geometry_rule": "all_touched; counts are dong memberships, not unique source pixels or ground-area coverage"
+  },
+  "quality": {
+    "mask_code_counts_over_dong_band_memberships": {
+      "0": 88451,
+      "1": 888896,
+      "2": 0,
+      "3": 0
+    },
+    "inside_pixel_membership_count": 888896,
+    "outside_pixel_membership_count": 88451,
+    "source_nodata_pixel_membership_count": 0,
+    "upper_bits_pixel_membership_count": 0,
+    "nonfinite_inside_pixel_membership_count": 0,
+    "valid_dn_pixel_membership_count": 888896,
+    "invalid_mask_pixel_membership_count": 0,
+    "selected_missing_dong_band_count": 0,
+    "bronze_only_missing_dong_band_count": 2125,
+    "dn_min": 2569,
+    "dn_max": 7538,
+    "units": "packed_DN",
+    "valid_numeric_rule": "mask==1 and finite and 0<=DN<=8191; exclude outside, nodata and upper bits",
+    "cloud_qc_status": "unverified",
+    "cloud_fraction": null,
+    "temperature_calibration": "none",
+    "precipitation_label_status": "not joined",
+    "ground_area_coverage": null
+  },
+  "duplicates": {
+    "source_path": [],
+    "sha256": [],
+    "product_filename": [],
+    "observation_time_utc": []
+  },
+  "unit_checks": {
+    "source_valid_bits": 13,
+    "stored_bits": 16,
+    "source_scale": 1.0,
+    "source_offset": 0.0,
+    "silver_tag": "packed_DN",
+    "kelvin_conversion": "not available in this handoff",
+    "all_native_resolutions_m": [
+      2000
+    ]
+  },
+  "prior_audit_reference": "reports/2026-11-23-verification/local-assets.json"
+}

@@ -2797,8 +2797,8 @@
 2024-04-22T03:00:00,success,200,58,,2026-11-12T20:29:19
 2024-04-22T04:00:00,success,200,58,,2026-11-12T20:29:19
 2024-04-22T05:00:00,success,200,58,,2026-11-12T20:29:19
-2024-04-20T22:00:00,failed,,0,"HTTPSConnectionPool(host='apihub.kma.go.kr', port=443): Max retries exceeded with url: /api/typ01/url/sat_file_nc_down.php?lvl=l1b&data=ir112&area=ko&tm=202404202200&authKey=7FjhBbj6QJaY4QW4-sCWMg (Ca",2026-11-12T20:29:45
-2024-04-20T21:00:00,failed,,0,"HTTPSConnectionPool(host='apihub.kma.go.kr', port=443): Max retries exceeded with url: /api/typ01/url/sat_file_nc_down.php?lvl=l1b&data=ir112&area=ko&tm=202404202100&authKey=7FjhBbj6QJaY4QW4-sCWMg (Ca",2026-11-12T20:29:45
+2024-04-20T22:00:00,failed,,0,"HTTPSConnectionPool(host='apihub.kma.go.kr', port=443): Max retries exceeded with url: /api/typ01/url/sat_file_nc_down.php?lvl=l1b&data=ir112&area=ko&tm=202404202200&authKey=[REDACTED] (Ca",2026-11-12T20:29:45
+2024-04-20T21:00:00,failed,,0,"HTTPSConnectionPool(host='apihub.kma.go.kr', port=443): Max retries exceeded with url: /api/typ01/url/sat_file_nc_down.php?lvl=l1b&data=ir112&area=ko&tm=202404202100&authKey=[REDACTED] (Ca",2026-11-12T20:29:45
 2024-04-20T10:00:00,success,200,58,,2026-11-12T20:30:10
 2024-04-22T10:00:00,success,200,58,,2026-11-12T20:30:11
 2024-04-20T20:00:00,success,200,58,,2026-11-12T20:30:12
@@ -3772,7 +3772,7 @@
 2024-06-01T16:00:00,success,200,58,,2026-11-12T20:34:33
 2024-06-01T18:00:00,success,200,58,,2026-11-12T20:34:33
 2024-06-01T19:00:00,success,200,58,,2026-11-12T20:34:33
-2024-05-29T19:00:00,failed,,0,"HTTPSConnectionPool(host='apihub.kma.go.kr', port=443): Max retries exceeded with url: /api/typ01/url/sat_file_nc_down.php?lvl=l1b&data=ir112&area=ko&tm=202405291900&authKey=7FjhBbj6QJaY4QW4-sCWMg (Ca",2026-11-12T20:34:53
+2024-05-29T19:00:00,failed,,0,"HTTPSConnectionPool(host='apihub.kma.go.kr', port=443): Max retries exceeded with url: /api/typ01/url/sat_file_nc_down.php?lvl=l1b&data=ir112&area=ko&tm=202405291900&authKey=[REDACTED] (Ca",2026-11-12T20:34:53
 2024-05-29T15:00:00,success,200,58,,2026-11-12T20:35:37
 2024-06-02T00:00:00,success,200,58,,2026-11-12T20:35:37
 2024-06-02T01:00:00,success,200,58,,2026-11-12T20:35:38

@@ -1,0 +1,69 @@
+{
+  "handoff_date_kst": "2026-11-26",
+  "period_kst": {
+    "start_inclusive": "2024-01-01",
+    "stop_exclusive": "2026-01-01"
+  },
+  "scope": "Existing observations, existing cleaning outputs, new inventories/validation and documentation",
+  "metadata_integrity_status": "PASS",
+  "data_reprocessed": false,
+  "new_observations_collected": false,
+  "prepared_for_documented_handoff": true,
+  "ready_for_damage_model": false,
+  "viirs": {
+    "source_pairs": 3476,
+    "original_files": 6952,
+    "reported_scene_footprints": 3476,
+    "published_days": 711,
+    "no_paired_cmr_days": 20,
+    "objects": 9796,
+    "bytes": 1210288334015,
+    "silver_pixel_records": 1125551292,
+    "gold_rows_verified": 7043394,
+    "gold_bytes_verified": 224234595,
+    "valid_temperature_records": 974165423,
+    "temperature_min_k": 183.24148559570312,
+    "temperature_max_k": 346.2103271484375,
+    "cloud_qc_status": "unverified",
+    "inspection": "all metadata/Quality, full Gold bytes/content; no full Bronze/Silver rescan"
+  },
+  "gk2a": {
+    "original_files": 736,
+    "daily_observations": 731,
+    "bronze_only_extras": 5,
+    "dongs": 425,
+    "raster_and_mask_files": 850,
+    "qc_rows_reused": 310675,
+    "units": "packed_DN",
+    "cloud_qc_status": "unverified",
+    "inspection": "full original/raster/mask SHA; all Silver/mask values; existing QC reused"
+  },
+  "ngii": {
+    "image_records": 1860,
+    "image_event_links": 1862,
+    "band_metadata_records": 7440,
+    "provider_mask_records": 13020,
+    "raw_files_available_here": 0,
+    "integrity_errors": 0,
+    "readiness_gaps": 4,
+    "own_pixel_qc": "not performed",
+    "inspection": "existing ledgers and archived provider XML"
+  },
+  "limitations": [
+    "Official damage-scale labels and common team event/region join are not yet available",
+    "Cloud/shadow quality validation is not complete",
+    "SGIS annual boundaries, GK2A boundary hash and NGII vuski 2021-04 require a crosswalk/agreed common geography",
+    "VIIRS 20 NO_PAIRED_CMR dates are conditional search gaps, not zero rainfall/temperature",
+    "GK2A is daily selected packed DN; five extra originals have no selected Silver band",
+    "NGII raw imagery is not present in this environment; archived metadata does not complete pixel QC",
+    "The previously exposed KMA credential must be replaced; current log values are redacted"
+  ],
+  "access": {
+    "public_repository": "https://github.com/sungshen/dsds4",
+    "gk2a": "existing Git-tracked files",
+    "viirs": "separately delivered 7-day GET links; no bucket-public access change",
+    "ngii_raw": "unavailable in this environment",
+    "signed_links_in_git": false,
+    "hetzner_required": false
+  }
+}

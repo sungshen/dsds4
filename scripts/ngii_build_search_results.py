@@ -1,7 +1,11 @@
-"""국토정보맵 국토위성 ARD 검색 기록(raw_ard_rows.csv) → 가이드 형식 search_results.csv + 사건별 요약.
+"""국토정보맵 초기 AOI 검색 기록 → search_results.csv + 초기 검색 사건별 요약.
 
 입력: tables/ngii/raw_ard_rows.csv  (브라우저에서 화면 값 그대로 옮긴 행. 결과 0건이면 product_id 빈칸)
-출력: tables/ngii/search_results.csv, tables/ngii/event_summary.csv
+출력: tables/ngii/search_results.csv, tables/ngii/event_summary_initial_aoi.csv
+
+이 목록은 초기 제한 AOI 검색 기록이다. 이후 전수 검색·다운로드를 반영한
+event_summary.csv는 ngii_delivery_inventory.py --reconcile-event-summary가 만든다.
+이 스크립트는 최신 사건 요약을 덮어쓰지 않는다.
 
 규칙
 - 화면에 없는 값은 비워 둔다(추측하지 않음).
@@ -154,7 +158,7 @@ def main() -> None:
             "nearest_after": after["obs_date"].min() if len(after) else "",
             "during_event": "; ".join(sorted(set(during["obs_date"]))),
         })
-    pd.DataFrame(summ).to_csv(NGII / "event_summary.csv", index=False, encoding="utf-8")
+    pd.DataFrame(summ).to_csv(NGII / "event_summary_initial_aoi.csv", index=False, encoding="utf-8")
     print(out["event_id"].value_counts().sort_index().to_string())
     print(pd.DataFrame(summ)[["event_id", "ard_id_rows", "nearest_before", "nearest_after", "during_event"]].to_string(index=False))
 

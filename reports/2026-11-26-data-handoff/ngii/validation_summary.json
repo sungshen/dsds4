@@ -1,0 +1,35 @@
+{
+  "schema_version": "ngii-handoff-v1",
+  "validation_status": "PASS_WITH_READINESS_GAPS",
+  "scope": "existing_local_ledgers_and_archived_XML_only",
+  "image_count": 1860,
+  "event_link_count": 1862,
+  "band_record_count": 7440,
+  "mask_record_count": 13020,
+  "raw_local_available_count": 0,
+  "raw_missing_local_count": 1860,
+  "per_event_manifest_owned_count": {
+    "E1": 508,
+    "E3": 44,
+    "E4": 1260,
+    "E6": 48
+  },
+  "error_count": 0,
+  "warning_count": 4,
+  "readiness_for_damage_model": "not_ready_missing_raw_access_science_qc_and_damage_labels",
+  "checks": [
+    "required_CSV_columns_and_row_width",
+    "catalog_and_event_dong_unique_keys",
+    "manifest_metadata_XML_cardinality",
+    "manifest_metadata_XML_values",
+    "checksum_format_and_cross_ledger_equality",
+    "UTC_parse_and_event_phase",
+    "four_corner_coordinate_ranges",
+    "raster_dimensions_GSD_and_product_schema",
+    "provider_mask_raw_numeric_range",
+    "duplicate_recorded_checksums_and_date_tiles",
+    "local_raw_existence_and_size",
+    "local_raw_SHA256_only_when_requested"
+  ],
+  "raw_checksum_verification_requested": false
+}

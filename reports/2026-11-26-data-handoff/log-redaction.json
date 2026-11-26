@@ -1,0 +1,7 @@
+{
+  "file": "logs/download_log.csv",
+  "known_credential_occurrences_removed": 3,
+  "observation_data_changed": false,
+  "current_error_logging": "RequestException type name only; request URL is not persisted",
+  "historical_git_copies": "not rewritten; exposed KMA credential should be replaced"
+}

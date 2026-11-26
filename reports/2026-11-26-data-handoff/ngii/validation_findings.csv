@@ -1,0 +1,5 @@
+severity,check,key,detail
+WARNING,raw_missing_locally,all_images,1860/1860 recorded raw paths unavailable in this checkout; no remote availability checked
+WARNING,science_qc_not_completed,all_images,Provider ARD and XML masks are not own Silver validation; pixel units/mask codes/cloud QC unverified
+WARNING,official_damage_labels_not_joined,all_events,No official damage labels are joined by this NGII inventory
+WARNING,boundary_crosswalk_required,all_events,NGII region tables use vuski-2021-04; VIIRS uses SGIS 2024/2025 2Q

@@ -1,0 +1,104 @@
+{
+  "snapshot_sha256": "e1185792c9a61a5204649b7710d4eaf27e7141a4ed09c72279eb5ac2838c9a2c",
+  "checks": [
+    {
+      "date_kst": "2024-01-01",
+      "tier": "silver",
+      "object_key": "viirs-daily/silver/sgis-2024-2q/2024/01/01/all-observations.parquet",
+      "size_match": true,
+      "sha256_match": true,
+      "fingerprint_match": true,
+      "pipeline_version_match": true,
+      "list_etag_match": true,
+      "status": "MATCH"
+    },
+    {
+      "date_kst": "2024-01-01",
+      "tier": "quality",
+      "object_key": "viirs-daily/quality/sgis-2024-2q/2024/01/01/all-observations.json",
+      "size_match": true,
+      "sha256_match": true,
+      "fingerprint_match": true,
+      "pipeline_version_match": true,
+      "list_etag_match": true,
+      "status": "MATCH"
+    },
+    {
+      "date_kst": "2024-01-01",
+      "tier": "gold",
+      "object_key": "viirs-daily/gold/sgis-2024-2q/2024/01/01/dong-observations.parquet",
+      "size_match": true,
+      "sha256_match": true,
+      "fingerprint_match": true,
+      "pipeline_version_match": true,
+      "list_etag_match": true,
+      "status": "MATCH"
+    },
+    {
+      "date_kst": "2025-01-09",
+      "tier": "silver",
+      "object_key": "viirs-daily/silver/sgis-2025-2q/2025/01/09/all-observations.parquet",
+      "size_match": true,
+      "sha256_match": true,
+      "fingerprint_match": true,
+      "pipeline_version_match": true,
+      "list_etag_match": true,
+      "status": "MATCH"
+    },
+    {
+      "date_kst": "2025-01-09",
+      "tier": "quality",
+      "object_key": "viirs-daily/quality/sgis-2025-2q/2025/01/09/all-observations.json",
+      "size_match": true,
+      "sha256_match": true,
+      "fingerprint_match": true,
+      "pipeline_version_match": true,
+      "list_etag_match": true,
+      "status": "MATCH"
+    },
+    {
+      "date_kst": "2025-01-09",
+      "tier": "gold",
+      "object_key": "viirs-daily/gold/sgis-2025-2q/2025/01/09/dong-observations.parquet",
+      "size_match": true,
+      "sha256_match": true,
+      "fingerprint_match": true,
+      "pipeline_version_match": true,
+      "list_etag_match": true,
+      "status": "MATCH"
+    },
+    {
+      "date_kst": "2025-12-31",
+      "tier": "silver",
+      "object_key": "viirs-daily/silver/sgis-2025-2q/2025/12/31/all-observations.parquet",
+      "size_match": true,
+      "sha256_match": true,
+      "fingerprint_match": true,
+      "pipeline_version_match": true,
+      "list_etag_match": true,
+      "status": "MATCH"
+    },
+    {
+      "date_kst": "2025-12-31",
+      "tier": "quality",
+      "object_key": "viirs-daily/quality/sgis-2025-2q/2025/12/31/all-observations.json",
+      "size_match": true,
+      "sha256_match": true,
+      "fingerprint_match": true,
+      "pipeline_version_match": true,
+      "list_etag_match": true,
+      "status": "MATCH"
+    },
+    {
+      "date_kst": "2025-12-31",
+      "tier": "gold",
+      "object_key": "viirs-daily/gold/sgis-2025-2q/2025/12/31/dong-observations.parquet",
+      "size_match": true,
+      "sha256_match": true,
+      "fingerprint_match": true,
+      "pipeline_version_match": true,
+      "list_etag_match": true,
+      "status": "MATCH"
+    }
+  ]
+}

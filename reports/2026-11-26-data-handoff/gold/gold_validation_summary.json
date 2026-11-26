@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "files_checked": 711,
+  "status_counts": {
+    "PASS": 711
+  },
+  "reused_exact_checks": 0,
+  "total_gold_bytes": 224234595,
+  "reused_verified_byte_cache": 707,
+  "byte_cache_policy": "content-addressed SHA-256; full hash and size checked on each use; no stale PASS reuse",
+  "row_count": 7043394,
+  "totals": {
+    "pixel_count": 1125551292,
+    "finite_temperature_count": 978307320,
+    "flagged_count": 151385869,
+    "valid_count": 974165423
+  },
+  "groups_without_valid_temperature": 53497,
+  "temperature_min_k": 183.24148559570312,
+  "temperature_max_k": 346.2103271484375,
+  "cloud_qc_status": "unverified",
+  "code_sha256": "572f8d824ad218ac607b43d9d8785e152800cc27936cc3e82d5018073dc3824c",
+  "input_inventory_sha256": "136b3d08ed71b20d4062bd0fc0bedf32b51ce7287b958e5ed83be3db451508d5",
+  "input_days_sha256": "829e8aa95c52d1fe5608612d3e7babeabb5d470e9d2049ea0e5c2979bcf87e63",
+  "input_scenes_sha256": "f4671cd12a20e93b13d79d004e47ed7a1ac9606f34710957496f2f30d5f4dead",
+  "checks": [
+    "full_byte_SHA256_and_size",
+    "schema_units_lineage",
+    "unique_dong_swath_key",
+    "inventory_preflight_before_network",
+    "processing_boundary_and_source_silver_hashes",
+    "scene_UTC_start_matches_source_expectation",
+    "required_fields_not_null",
+    "count_inequalities",
+    "daily_and_scene_quality_sums",
+    "null_statistics_when_no_valid_pixels",
+    "finite_positive_Kelvin",
+    "min_mean_max_order",
+    "valid_fraction_denominator",
+    "scan_time_finiteness_and_order"
+  ],
+  "range_interpretation": "Observed positive-Kelvin range and arithmetic consistency only; no arbitrary climate cutoff or outlier deletion applied",
+  "not_performed": [
+    "Silver_content_read",
+    "Bronze_content_read",
+    "cloud_shadow_QC",
+    "scientific_temperature_bias_validation",
+    "reprocessing"
+  ]
+}

@@ -1,0 +1,52 @@
+artifact,column,definition,unit_or_type,limits_and_missing_rule
+image_inventory.csv,catalog_id,Provider ARD catalog identifier,string,Physical image key; not an event identifier
+image_inventory.csv,stored_event_id,Event used for the historical storage directory,string,E1/E3/E4/E6; use image_event_links for analytical membership
+image_inventory.csv,acquisition_date,General/AcquisitionDate from archived XML,ISO date,Not a synthetic daily observation
+image_inventory.csv,event_phase,Before/during/after the stored event date interval,categorical pre/during/post,Checked against KST conversion of first input center
+image_inventory.csv,satellite;sensor;provider_product_level,Provider-reported platform sensor and processing level,string,Provider processing is not own Silver QC
+image_inventory.csv,time_reference;time_source_timezone,Scope and timezone evidence for normalized timestamps,string,First input image center is not exact tile/pixel exposure
+image_inventory.csv,first_input_center_utc_raw,First InputImage/ImagingTime/ImagingCenterTime/UTC,compact explicitly UTC timestamp,Original fraction digits preserved
+image_inventory.csv,first_input_center_utc,ISO rendering of explicitly UTC source field,ISO timestamp with Z,No timezone assigned to initial unknown-zone search timestamps
+image_inventory.csv,first_input_center_kst,Same instant converted to UTC+09:00,ISO timestamp with +09:00,Full source fraction precision preserved
+image_inventory.csv,input_start_min_utc;input_end_max_utc,Minimum start and maximum end across XML InputImage records,ISO UTC timestamp,Input-image envelope; not exact tile exposure duration
+image_inventory.csv,input_image_count,Number of InputImage elements in archived XML,count,Does not count independent ARD tiles
+image_inventory.csv,map_number,Provider map sheet number,string,Preserve digits as identifier
+image_inventory.csv,raster_crs,General/CoordinateReferenceSystem/CSCode,EPSG identifier,EPSG:5179 in current records; no reprojection performed
+image_inventory.csv,raster_gsd_column_m;raster_gsd_row_m,SR1 ImageGSD column and signed row spacing,metres,Current 2 and -2; raster grid spacing not native sensor exposure footprint
+image_inventory.csv,raster_width;raster_height,SR1 reported grid dimensions,pixels,Positive reported dimensions; actual TIFF not opened
+image_inventory.csv,corner_coordinate_representation,Interpretation of XML ImagingCoordinates,string,Longitude/latitude degrees; datum not explicitly established for these elements
+image_inventory.csv,bbox_min_lon;bbox_max_lon;bbox_min_lat;bbox_max_lat,Axis-aligned envelope of four reported SR1 corners,degrees,Not valid-pixel coverage or exact footprint; do not relabel as EPSG:4326 without checking
+image_inventory.csv,corners_lon_lat_json,Four provider-reported corner coordinate pairs,JSON longitude/latitude pairs,Original geographic corner values; no transformation
+image_inventory.csv,spectral_bands,Names of Image/SR1 through SR4,string list,Blue;Green;Red;Near Infrared
+image_inventory.csv,pixel_unit_status,Status of own verification of ARD output pixel values,categorical,Unverified; no raster read or scale application
+image_inventory.csv,atmospheric_correction_reported,Provider Input/AtmosphericCorrectionAlgorithm,string,6SV reported; does not establish output pixel units
+image_inventory.csv,provider_mask_fields,Mask names present in archived XML,string list,Seven provider mask types; mask semantics/codes unverified locally
+image_inventory.csv,provider_mask_value_unit,Status of PerPixelPercentage unit definition,string,Unknown; raw values retained without multiplying by 100
+image_inventory.csv,own_silver_qc_status,Whether this inventory performed own pixel/geometry/cloud QC,categorical,not_performed
+image_inventory.csv,official_damage_label_status,Whether official damage outcomes are joined,categorical,not_joined; provider Water mask is not a damage label
+image_inventory.csv,boundary_version_for_region_tables,Boundary used for existing administrative region lists,string,vuski-2021-04; crosswalk needed for SGIS 2024/2025
+image_inventory.csv,raw_recorded_path,Historical path from asset manifest,repository-relative path,Not evidence of present availability
+image_inventory.csv,raw_local_available,Whether recorded raw path is a file in the inspected checkout,boolean,No remote storage or other machine checked
+image_inventory.csv,raw_recorded_size_bytes,Historical file size recorded in manifest,bytes,Must be positive; compared with local file size if available
+image_inventory.csv,raw_recorded_sha256,Historical SHA-256 recorded in manifest,64 hexadecimal characters,Checked against metadata ledger; not rehashed when raw file missing
+image_inventory.csv,raw_checksum_check_now,Current raw-byte verification result,categorical,not_available/not_checked/match/mismatch; match requires explicit --verify-raw-checksums
+image_inventory.csv,metadata_csv_path;metadata_csv_line,Source CSV and one-based source line,path and integer,Header is line 1
+image_inventory.csv,aux_xml_archive;aux_xml_member,Source metadata archive and member name,path and archive member,No archive files extracted to raw directories
+image_inventory.csv,aux_xml_sha256,SHA-256 of actual archived XML bytes,64 hexadecimal characters,Computed during this inventory
+image_event_links.csv,event_id;phase;stored_event_id;association_basis,Analytical event relation and before/during/after category,identifiers and categorical,Two stored E6 pre-images also relate to E4 post-period; no raw duplicate
+band_metadata.csv,xml_band;name;file_name,Provider XML SR band name and referenced TIFF,string,TIFF existence/content not verified locally
+band_metadata.csv,central_wavelength;wavelength_unit,Provider central wavelength and unit,nm reported by XML,No wavelength conversion
+band_metadata.csv,radiance_gain;radiance_offset,Provider XML radiance-conversion coefficients,numeric raw coefficients,Do not apply to ARD output until actual unit/scale definition validated
+band_metadata.csv,output_pixel_unit_status;gain_offset_application,Status of own output-unit verification and coefficient application,categorical,unverified; not_applied_not_validated_for_ARD_pixels
+provider_mask_metadata.csv,mask_name;file_name,Provider mask type and referenced TIFF,string,NoData/MissingData/Saturation/ValidData/CloudMapHigh/CloudMapLow/Water
+provider_mask_metadata.csv,PerPixelPercentage_raw,Unchanged string in provider PerPixelPercentage element,numeric string with unit unknown,Observed range 0..1; no percentage/fraction reinterpretation
+provider_mask_metadata.csv,raw_field_unit;own_pixel_mask_validation,Status of mask unit and actual pixel-code validation,categorical,unknown; not_performed
+event_summary.csv,region_dong_rows;region_dongs_with_recorded_site_search,Counts of target-region administrative rows and search mapping,count,Event x dong rows under vuski-2021-04; search coverage not imagery coverage
+event_summary.csv,site_search_sigungu_rows;site_search_sigungu_rows_with_ard_hits,All recorded site sweep rows and those with positive ARD result count,count,Can include site region expansion beyond target AOI; overlapping scenes are not unique image counts
+event_summary.csv,target_region_site_sigungu_rows;target_region_site_sigungu_rows_with_ard_hits,Recorded sweep rows mapped to target-region dongs and ARD-positive subset,count,Derived from rain_region_coverage site-name mapping for search auditing only
+event_summary.csv,manifest_owned_image_count;event_linked_image_count;linked_from_other_stored_event_count,Physical manifest count and event association counts,count,1260 physical E4 images but 1262 analytical E4 links
+event_summary.csv,linked_pre_image_count;linked_during_image_count;linked_post_image_count,Linked-image counts by event phase,count,Zero downloaded images does not imply zero provider observations globally
+event_summary.csv,linked_acquisition_dates,Distinct acquisition dates among linked physical images,ISO date list,No interpolation or daily fill
+event_summary.csv,owned_raw_local_available_count,Present raw files among images stored under this event,count,Current checkout only
+source_checksums.csv,source_path;size_bytes;sha256;rows_or_xml_members,Input/source-code identity and bytes checked during generation,path/count/bytes/SHA-256,Metadata provenance; not a replacement for raw-file verification
+validation_findings.csv,severity;check;key;detail,Data-integrity failure or readiness gap record,categorical and text,ERROR prevents reconciled summary publication; WARNING keeps readiness gaps explicit

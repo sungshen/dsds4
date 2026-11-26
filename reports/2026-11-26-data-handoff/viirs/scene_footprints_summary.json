@@ -1,0 +1,317 @@
+{
+  "status": "complete",
+  "source": "Public NASA CMR exact existing VNP02IMG granule metadata",
+  "endpoint": "https://cmr.earthdata.nasa.gov/search/granules.umm_json",
+  "documentation": "https://cmr.earthdata.nasa.gov/search/site/docs/search/api.html",
+  "scene_inventory_sha256": "f4671cd12a20e93b13d79d004e47ed7a1ac9606f34710957496f2f30d5f4dead",
+  "scene_count": 3476,
+  "unique_scene_count": 3476,
+  "status_counts": {
+    "REPORTED_FOOTPRINT": 3476
+  },
+  "exact_single_metadata_matches": 3476,
+  "antimeridian_wrapping_envelopes": 0,
+  "bbox_basis_counts": {
+    "circular envelope of reported coordinates; not a geodesic-edge or pixel-footprint calculation": 3476
+  },
+  "batch_size": 100,
+  "metadata_batches": 35,
+  "batch_retrieval_counts": {
+    "public_cmr_metadata_post": 35
+  },
+  "response_bytes_sha256_receipts": [
+    {
+      "query_sha256": "02d6b2b26ba39bf098ba55fcc85a3ab1f9c5f49f0a5bb6ec7cb7823c5efbd67e",
+      "retrieved_at_utc": "2026-11-26T04:36:08.237933+00:00",
+      "response_sha256": "17e4b3dcffe8feb1c89d891833c6fbf08c3b39327905437b2665edfadd730906",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "0871ac1d132be1355dfb59f1b15764d6c6ff6fa00ba4a93f27ca14b01c4b90f7",
+      "retrieved_at_utc": "2026-11-26T04:36:04.606145+00:00",
+      "response_sha256": "2d8fbc694076bbaf5f0d694700b92687f38f83b8b29f84779c4fe12cb4fad72d",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "096ad6f1f8d50c5eb528b194c06e36b62e6545dc3c092e08283847b2e424ab99",
+      "retrieved_at_utc": "2026-11-26T04:36:15.087572+00:00",
+      "response_sha256": "fc46bd9aae72d1f5f46183b81c579896a491f90e9fbb60f0ec9ba74d51113566",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "0af9af46c3e7b1f297db8cdc6c3489044538bd9b20f61a03f3b1addcaca8ea67",
+      "retrieved_at_utc": "2026-11-26T04:36:06.922233+00:00",
+      "response_sha256": "c6bafecceed62bc39daf5930175b0addff3308192c0709b8c06c4e90a54b897c",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "0b5e2582b841bf2c0936fb3ea05446dd319a937c386242b0cfa755622323ede3",
+      "retrieved_at_utc": "2026-11-26T04:36:13.875350+00:00",
+      "response_sha256": "6a4876b31ae89c05d7a38e10751b96db8a5f94d79830bc23f42b20bcefd3d861",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "0de97065ca7a95972380ce48ae7ae3fdd2d96ecaaaa637852dc9086fcf7811ef",
+      "retrieved_at_utc": "2026-11-26T04:36:11.755658+00:00",
+      "response_sha256": "005a8130405a229e49dd26ef36363af78106c07da62d8f0585f94c523fb3f1d7",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "0f279e58cbe734e06892f6382e2d3b9555bc7f1e30347ad7db0bf135ac3b2317",
+      "retrieved_at_utc": "2026-11-26T04:36:15.798488+00:00",
+      "response_sha256": "06c18dc24f4de46648089a873acf9236999391b08019681b5c2eb462f3d0ebf8",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "13276ff4fccf6eb1d090727222174a53aedfb6ccfe9a30664f275f344e353cc7",
+      "retrieved_at_utc": "2026-11-26T04:36:08.220468+00:00",
+      "response_sha256": "e18f9c64b5c24f0e66f9cc3b13039b1947779454c6174367ce66beb9812d01c0",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "15588c850277e3479c99489120dbfb2b41a5b48f37934a5f873f8f40f5a09d8a",
+      "retrieved_at_utc": "2026-11-26T04:36:02.904316+00:00",
+      "response_sha256": "8adaf3f08bef1024e6870263cbcc8c933b301d97498c4401acb45dadb3b650a2",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "361305a3df993f012c603be678086c363ee0f89404c9eb45c0ab7fa9fd2249d4",
+      "retrieved_at_utc": "2026-11-26T04:36:10.560876+00:00",
+      "response_sha256": "14d8f3ddadaf6812c5ec58c21554b875eafcd6407ba281df002b00578e924d0a",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "445f8ab89d0744eb3196922dbebb6b4f1d22c13e4229ba46da59ffef4d1c6ec9",
+      "retrieved_at_utc": "2026-11-26T04:36:09.799891+00:00",
+      "response_sha256": "392aaf21923931ea22307aa43935d8d725c6fced74e341650ed7ee926e3f8645",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "45cb54201d2fe660bb7a0e34db8258a2dd2d63024dc01270e931de5d93a92328",
+      "retrieved_at_utc": "2026-11-26T04:36:04.089427+00:00",
+      "response_sha256": "86e4414eb68c4843a323829679d4c0606919b2c41e59f64fd30513998e6ada0c",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "4808f62c3c968faef3456e44e29af53e093cca737e1cb213766cc2f0b58115db",
+      "retrieved_at_utc": "2026-11-26T04:36:12.650616+00:00",
+      "response_sha256": "6bd108bbcbd5a7d60351304d0240e97237b2a3ace8b0b0e86e88ce14547fc532",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "685dd02169198d8262fc0b3a7492afb6b7e095a6f90bf38d3e632b0e4d1ba7d6",
+      "retrieved_at_utc": "2026-11-26T04:36:04.097278+00:00",
+      "response_sha256": "74135005a56c5ac242185b554e3a9e69795f8fd997c65a13958cf86c9b281e9a",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "78868eb99bb1803fc2a2ed55777038fbf2c9b794593774ad2e49de44444258a1",
+      "retrieved_at_utc": "2026-11-26T04:36:05.834294+00:00",
+      "response_sha256": "d96c0608248177d3eddb42bf678052a1e43258526fcb607cb372589f5cae5dd2",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "7f52c453da1ab54cd8a2f535c562a85a3c08285188cc3e4fd41a879c7108c0a0",
+      "retrieved_at_utc": "2026-11-26T04:36:03.392867+00:00",
+      "response_sha256": "1518ba5daf10524748d3d2f5e5a628106a98d5ae61c9d68b8b95d5f2e0831df1",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "85ae1b8c1021599dde7dba09527076127d2de1e1963f693fc1f49a87eb081a0f",
+      "retrieved_at_utc": "2026-11-26T04:36:09.504329+00:00",
+      "response_sha256": "2e07b3bdea3beee513114dcbde86b407e0c76c3dfa0c7ac6a04d91e267364228",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "8e57613f921df28e76c6e8884b36d5c2b6ec5f94b25c1b53101b215dec26882a",
+      "retrieved_at_utc": "2026-11-26T04:36:08.837677+00:00",
+      "response_sha256": "0a61d41a58a6a29068d16f1a05a27524ee43183dc5e5e72f886b3787913b1865",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "912cd07487835a0c1436ac8aac751179bdd38920fe728394b498bf357fcfcb9c",
+      "retrieved_at_utc": "2026-11-26T04:36:01.640342+00:00",
+      "response_sha256": "71d648982cd23822da3878fa40f8b9bd72b239385affa4ae85998c2747a63e1c",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "95af2057e0e40331b91476f541ae4e9853d821ab69785a26949422e167db1bb2",
+      "retrieved_at_utc": "2026-11-26T04:36:12.941607+00:00",
+      "response_sha256": "28e7f1ec42ae6f200cecc1c7253d739295495b4af575db887a9e839c49c9ab53",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "a5053e2f9f0208804c57c4f6eb18a91ef02e9df314a4e96e051c51972d8f0e4e",
+      "retrieved_at_utc": "2026-11-26T04:36:11.215587+00:00",
+      "response_sha256": "bee6f7c8e3b179b27d0ce7fb09a8d1dfa74e1301e36562230eac04a0b4ef45f7",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "aacba40dd2ceaccf4f2fda74d15324b12cfb2c65e9976c8f30da662d1dbd4f4c",
+      "retrieved_at_utc": "2026-11-26T04:36:01.644438+00:00",
+      "response_sha256": "bd56a3dd084fa75903a8c2c972180d9ee731dbc7befbbf187684eebfdd5b92da",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "ac1d70c436212e40ead808192d3f43fb6dacc030b69656856c0110f2382cd6e7",
+      "retrieved_at_utc": "2026-11-26T04:36:13.200471+00:00",
+      "response_sha256": "1e739181edbf5c688d87be3f3a20376635a896aaad617f82bd7c21e886fa3da4",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "c05022f057a3e20eb67069135795233d8142e8bd5de89f3fd4e7301ae1a2876d",
+      "retrieved_at_utc": "2026-11-26T04:36:06.431517+00:00",
+      "response_sha256": "742f335357a1e58bdd231b6eacddcd069e75e1fc90a0d945dbbf9e45f716498a",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "c88fb537486cf55165a603dacbd776d98aaa88af8ebfd435cad4b021e666cfb3",
+      "retrieved_at_utc": "2026-11-26T04:36:11.955218+00:00",
+      "response_sha256": "f860ad1dff8edfe483a49b658e47b7577b891594922f1ea0e1dbb9e29b4f0a27",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "cdb523ab1a8aad145015cd2f031956161a7190a4f5c5f2694c782417d3e862b9",
+      "retrieved_at_utc": "2026-11-26T04:36:05.309971+00:00",
+      "response_sha256": "5b04cd285856546cf771e4e5890e9dcb90313365c5c52fb65e23d8f6d1e1e4cf",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "cebb7150ce57dc57533687b0f19173292731ea21cbbe671571f42dc8cae840ee",
+      "retrieved_at_utc": "2026-11-26T04:36:02.902787+00:00",
+      "response_sha256": "d1dba0aaa741bb057cc9a62e83a5508e628604ad8944fe6fa520751d771d25dd",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "cf455f86fb1cff736df9fd9a51bd2d4fa46833cbba09a154853335000a5d1a9f",
+      "retrieved_at_utc": "2026-11-26T04:36:05.346394+00:00",
+      "response_sha256": "11ffe0b98980021831a9e95bc88251464a4125279a7bcf53274726ed7ccca625",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "da7aef408168bc6dcdc792ada957844b19aaa40e372312baa74b33e59c2f5238",
+      "retrieved_at_utc": "2026-11-26T04:36:14.535439+00:00",
+      "response_sha256": "dc52759b1b9bc60b8777d037ca2c897db7d91b1bc8e81fd072d3db6e5bff0eae",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "db4aa3409d83f063f866938c84653096ce3f0b01dd1e6ac53d62fe26f351cf8d",
+      "retrieved_at_utc": "2026-11-26T04:36:10.712706+00:00",
+      "response_sha256": "6c89f248b2f9b423e1d27a31effd009e4aa7c8c9e64e52c6670c92d974de8509",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "e3290e763766c5f332d6d091ed247edcba1c0d579add70d830f2d8349774f9c5",
+      "retrieved_at_utc": "2026-11-26T04:36:01.451791+00:00",
+      "response_sha256": "38ce69e111fcd0b1774747cb6fc7b442cf0f9503863f8fe772e7edfafe9a7d46",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "edad60e3e18b04ddf307260b7da29999c8bfe71a1ea313ab8151bc8e2670c5ce",
+      "retrieved_at_utc": "2026-11-26T04:36:07.572169+00:00",
+      "response_sha256": "2f55a0c881b98679ea8fa512bf3294e7dae64e76e47e29c9af4e8107214de7fb",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "f0e2c6615c56c024fe82fe99a4db586a07572c6274a8446a54d33bf2921fdead",
+      "retrieved_at_utc": "2026-11-26T04:36:14.520234+00:00",
+      "response_sha256": "64df6ee2124f8f5687d46335f51c10aae15f5ab522c3e2fc0ec44d747b2efcbd",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "f0f1233c435afa674dd8dceb0649389cf907a37802ac0e8c4644241c092b5ada",
+      "retrieved_at_utc": "2026-11-26T04:36:15.691566+00:00",
+      "response_sha256": "8ce11d376e23621abb2eab31a2a65f5d28fb8144f1dbe36b18358f1a474ab899",
+      "requested_count": 76,
+      "matched_record_count": 76,
+      "retrieval": "public_cmr_metadata_post"
+    },
+    {
+      "query_sha256": "f2a3fc601007b642c5a2dd0dc4fe4a57e6aa71fc08f44ccf7fcd7c6b5fb13f85",
+      "retrieved_at_utc": "2026-11-26T04:36:07.091402+00:00",
+      "response_sha256": "c19d576e9b540b775dfa07776681a6c66acd8b9e35edd47dac633dd17bb93691",
+      "requested_count": 100,
+      "matched_record_count": 100,
+      "retrieval": "public_cmr_metadata_post"
+    }
+  ],
+  "failed_batches": [],
+  "output_csv_sha256": "e3e214e8364c1063ef25ea354510f462522f927b686b6210f56b244faab196eb",
+  "extent_basis": "NASA CMR granule footprint; not cropped land coverage",
+  "cloud_qc_status": "unverified",
+  "new_images_or_scenes_collected": 0,
+  "r2_requests": 0,
+  "limitations": [
+    "These are the provider's nominal granule footprints, not clipped land coverage or per-pixel geolocation checks.",
+    "Raw UMM geometry is retained. Derived polygon envelopes use reported vertices; geodesic arcs can extend beyond vertex latitude extrema.",
+    "west>east means antimeridian wrap; raw geometry is not rewritten or clipped.",
+    "Missing/ambiguous metadata remains explicit and is never replaced with the CMR query BBOX.",
+    "Cached metadata describes its retrieval time and revision; reruns reuse it unless --refresh is requested."
+  ]
+}

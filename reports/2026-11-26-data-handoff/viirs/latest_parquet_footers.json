@@ -1,0 +1,233 @@
+{
+  "snapshot_sha256": "e1185792c9a61a5204649b7710d4eaf27e7141a4ed09c72279eb5ac2838c9a2c",
+  "checks": [
+    {
+      "date_kst": "2025-12-31",
+      "tier": "silver",
+      "object_key": "viirs-daily/silver/sgis-2025-2q/2025/12/31/all-observations.parquet",
+      "status": "FOOTER_READ",
+      "footer_bytes_downloaded": 504754,
+      "full_object_bytes": 20892699,
+      "row_count": 1901497,
+      "row_group_count": 406,
+      "schema": [
+        {
+          "name": "dong_code",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "row",
+          "type": "int32",
+          "nullable": true
+        },
+        {
+          "name": "column",
+          "type": "int32",
+          "nullable": true
+        },
+        {
+          "name": "longitude",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "latitude",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "i05_brightness_temperature_k",
+          "type": "float",
+          "nullable": true
+        },
+        {
+          "name": "i05_quality_flags",
+          "type": "uint16",
+          "nullable": true
+        },
+        {
+          "name": "swath_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "swath_start_utc",
+          "type": "timestamp[us, tz=UTC]",
+          "nullable": true
+        },
+        {
+          "name": "scan_index",
+          "type": "int32",
+          "nullable": true
+        },
+        {
+          "name": "scan_start_time_tai93_s",
+          "type": "double",
+          "nullable": true
+        }
+      ],
+      "metadata": {
+        "pipeline_version": "all-scenes-scan-time-v2.1",
+        "kst_date": "2025-12-31",
+        "boundary_version": "sgis-2025-2q",
+        "scan_time_units": "TAI93 seconds",
+        "scan_time_precision": "scan start; not per-pixel exposure",
+        "coordinate_crs": "EPSG:4326",
+        "temperature_units": "K",
+        "sampling": "native I5 pixel centers; no resampling",
+        "boundary_sha256": "079770b340c14f034dd59e14da706fad826237f54b684ba40c13b4a77d036c34",
+        "processing_code_sha256": "5eaa108385f35ece35e2fcfa6e96e4bfadd1007aa7df43e0e4161f46ceae5503",
+        "cloud_qc_status": "unverified",
+        "input_fingerprint": "3897c6bddcd28d07182e2ec8d80c806fed50c2f7b1f2f72ee6ca7243ed45b8c2"
+      },
+      "column_statistics_extrema": {
+        "longitude": {
+          "min": 124.61088562011719,
+          "max": 131.86521911621094,
+          "null_count": 0
+        },
+        "latitude": {
+          "min": 33.113529205322266,
+          "max": 38.61322784423828,
+          "null_count": 0
+        },
+        "i05_brightness_temperature_k": {
+          "min": 233.4072723388672,
+          "max": 286.74169921875,
+          "null_count": 386922
+        },
+        "i05_quality_flags": {
+          "min": 0,
+          "max": 256,
+          "null_count": 0
+        },
+        "scan_start_time_tai93_s": {
+          "min": 1041266491.861088,
+          "max": 1041313443.244172,
+          "null_count": 0
+        }
+      },
+      "statistics_scope": "Parquet footer statistics of this single daily sample; not a full scan or all-date footprint"
+    },
+    {
+      "date_kst": "2025-12-31",
+      "tier": "gold",
+      "object_key": "viirs-daily/gold/sgis-2025-2q/2025/12/31/dong-observations.parquet",
+      "status": "FOOTER_READ",
+      "footer_bytes_downloaded": 28372,
+      "full_object_bytes": 420672,
+      "row_count": 12780,
+      "row_group_count": 13,
+      "schema": [
+        {
+          "name": "date",
+          "type": "date32[day]",
+          "nullable": true
+        },
+        {
+          "name": "boundary_version",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "dong_code",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "swath_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "swath_start_utc",
+          "type": "timestamp[us, tz=UTC]",
+          "nullable": true
+        },
+        {
+          "name": "first_scan_start_time_tai93_s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "last_scan_start_time_tai93_s",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "pixel_count",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "finite_temperature_count",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "flagged_count",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "valid_count",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "temperature_mean_k",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "temperature_min_k",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "temperature_max_k",
+          "type": "double",
+          "nullable": true
+        },
+        {
+          "name": "valid_fraction",
+          "type": "double",
+          "nullable": true
+        }
+      ],
+      "metadata": {
+        "pipeline_version": "all-scenes-scan-time-v2.1",
+        "date_kst": "2025-12-31",
+        "boundary_version": "sgis-2025-2q",
+        "units": "Kelvin; TAI93 seconds",
+        "aggregation": "dong_code x swath_id",
+        "time_accuracy": "scan_start_time is scan-level, not exact pixel exposure time",
+        "temperature_valid_rule": "finite temperature AND quality_flags == 0",
+        "processing_code_sha256": "5eaa108385f35ece35e2fcfa6e96e4bfadd1007aa7df43e0e4161f46ceae5503",
+        "cloud_qc_status": "unverified",
+        "resampling": "none",
+        "boundary_sha256": "079770b340c14f034dd59e14da706fad826237f54b684ba40c13b4a77d036c34",
+        "input_fingerprint": "3897c6bddcd28d07182e2ec8d80c806fed50c2f7b1f2f72ee6ca7243ed45b8c2"
+      },
+      "column_statistics_extrema": {
+        "temperature_mean_k": {
+          "min": 238.33380456064262,
+          "max": 284.8865051269531,
+          "null_count": 61
+        },
+        "temperature_min_k": {
+          "min": 233.4072723388672,
+          "max": 284.8865051269531,
+          "null_count": 61
+        },
+        "temperature_max_k": {
+          "min": 240.22702026367188,
+          "max": 286.74169921875,
+          "null_count": 61
+        }
+      },
+      "statistics_scope": "Parquet footer statistics of this single daily sample; not a full scan or all-date footprint"
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "source": "Existing VIIRS R2 publication; retired-server safe daily reports",
+  "captured_at_utc": "2026-11-26T04:29:11.329856+00:00",
+  "snapshot_sha256": "e1185792c9a61a5204649b7710d4eaf27e7141a4ed09c72279eb5ac2838c9a2c",
+  "period_kst": {
+    "start_inclusive": "2024-01-01",
+    "stop_exclusive": "2026-01-01",
+    "calendar_days": 731
+  },
+  "object_count": 9796,
+  "object_bytes": 1210288334015,
+  "objects_with_known_sha256": 9796,
+  "object_tier_counts": {
+    "bronze": 6952,
+    "gold": 711,
+    "quality": 711,
+    "publication": 711,
+    "silver": 711
+  },
+  "object_tier_bytes": {
+    "bronze": 1197268877253,
+    "gold": 224234595,
+    "publication": 601489,
+    "quality": 14881063,
+    "silver": 12779739615
+  },
+  "daily_status_counts": {
+    "CONSISTENT_METADATA_AND_QUALITY": 711,
+    "NO_PAIRED_CMR": 20
+  },
+  "scene_records": 3476,
+  "unique_date_swath_records": 3476,
+  "duplicate_date_swath_records": 0,
+  "zero_land_pixel_scenes": 567,
+  "zero_valid_temperature_scenes": 592,
+  "referenced_source_asset_rows": 6952,
+  "unique_referenced_source_keys": 6952,
+  "quality_totals": {
+    "pixel_count": 1125551292,
+    "finite_temperature": 978307320,
+    "flagged": 151385869,
+    "valid_flag_zero_temperature": 974165423
+  },
+  "gold_rows_recorded_server": 7043394,
+  "source_unit_check_counts": {
+    "declared_Kelvin": 3476
+  },
+  "source_platforms": [
+    "Suomi-NPP"
+  ],
+  "source_instruments": [
+    "VIIRS"
+  ],
+  "pipeline_versions": [
+    "all-scenes-scan-time-v2.1"
+  ],
+  "processing_boundary_lineage_groups": 2,
+  "new_collection_or_processing_performed": false,
+  "no_paired_cmr_dates": [
+    "2024-05-31",
+    "2024-06-01",
+    "2024-06-02",
+    "2024-06-03",
+    "2024-07-11",
+    "2024-07-12",
+    "2024-07-13",
+    "2024-07-14",
+    "2024-07-15",
+    "2024-07-16",
+    "2024-07-25",
+    "2024-07-26",
+    "2024-07-27",
+    "2024-07-28",
+    "2024-07-29",
+    "2024-09-27",
+    "2024-11-04",
+    "2024-11-05",
+    "2024-11-06",
+    "2025-11-12"
+  ],
+  "small_json_objects_checked": 1422,
+  "small_json_failure_count": 0,
+  "small_json_retrieval_counts": {
+    "etag_matched_cache": 1422
+  },
+  "list_pages": 10,
+  "sample_head_objects_checked": 9,
+  "sample_head_status_counts": {
+    "MATCH": 9
+  },
+  "latest_parquet_footer_status_counts": {
+    "FOOTER_READ": 2
+  },
+  "issue_counts": {
+    "NO_PAIRED_CMR": 20
+  },
+  "issue_severity_counts": {
+    "expected_gap": 20
+  },
+  "etag_size_duplicate_candidate_groups": 0,
+  "cloud_qc_status": "unverified",
+  "measured_spatial_bbox": null,
+  "query_bbox_wsen": [
+    124,
+    32,
+    132,
+    39
+  ],
+  "query_bbox_crs": "EPSG:4326",
+  "check_level": {
+    "all_objects": "Paginated LIST key/size/ETag/last-modified snapshot",
+    "all_publications": "Completion paths/sizes/valid digest declarations versus LIST; date and lineage checks",
+    "all_quality": "Small JSON GET (If-Match), actual SHA-256 versus manifest and GET metadata, per-scene sums and QA/unit/time checks",
+    "silver_gold": "LIST size versus manifest; row counts from archived per-day reports; SHA metadata/lineage HEAD sampled on earliest/middle/latest published days",
+    "bronze": "Referenced filenames exist in LIST; source hashes and units from processing quality records, not rehashed raw files",
+    "latest_day_footer_sample": "Range-only Parquet metadata for actual schema/row counts/statistics; no full Parquet download",
+    "not_performed": "Full NetCDF/Parquet downloads, Parquet unique-pixel/content revalidation, new CMR queries, cloud/land coverage validation, processing, collection, or remote writes"
+  },
+  "limitations": [
+    "CONSISTENT_METADATA_AND_QUALITY does not mean full-byte Silver/Gold validation or scientific QA approval.",
+    "NO_PAIRED_CMR is conditional on the original product-pair/search policy; missing days are not zero-valued observations.",
+    "CMR search BBOX is not an observed swath/pixel footprint. Native geolocated pixel centers were assigned to annual SGIS administrative polygons; no resampling.",
+    "Finite brightness temperature with source QA=0 is the current Gold inclusion rule; it does not certify cloud-free measurements or physical range validity.",
+    "Gold rows are dong x swath groups. Pixel totals include repeated observations and are not unique ground area.",
+    "Granule UTC and KST times are source coverage metadata; scan timestamps are TAI93 scan starts, not exact pixel exposure times.",
+    "No rainfall ground truth, heavy-rain labels, or Sentinel/NGII integration is inferred."
+  ]
+}
